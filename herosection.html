@@ -1,0 +1,310 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@400;500;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+.hero{
+  font-family:'DM Sans',sans-serif;
+  min-height:580px;
+  background:
+    radial-gradient(ellipse 90% 90% at -10% 110%, #0d1117 0%, #111827 25%, #1a2744 45%, transparent 70%),
+    radial-gradient(ellipse 75% 85% at 110% -10%, #1e3a6e 0%, #2a5298 30%, #3a6db5 55%, transparent 75%),
+    radial-gradient(ellipse 60% 60% at 55% 50%, #2a4a80 0%, #1e3460 40%, transparent 75%),
+    linear-gradient(130deg, #0d1117 0%, #141d2e 20%, #1a2d50 40%, #244080 60%, #3060a8 78%, #5080c0 92%, #7aaad8 100%);
+  position:relative;overflow:hidden;display:flex;flex-direction:column
+}
+.blob-dark{position:absolute;top:0;left:0;width:55%;height:100%;background:radial-gradient(ellipse 80% 100% at 0% 50%, rgba(8,12,20,0.85) 0%, rgba(10,16,30,0.6) 40%, transparent 75%);pointer-events:none}
+.blob-tr{position:absolute;top:-80px;right:-40px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle, rgba(58,109,181,0.5) 0%, rgba(42,82,152,0.3) 40%, transparent 70%);filter:blur(60px);pointer-events:none}
+.blob-center{position:absolute;top:20%;left:35%;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle, rgba(52,100,180,0.2) 0%, transparent 65%);filter:blur(40px);pointer-events:none}
+
+nav{position:relative;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:20px 32px}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-text{display:flex;flex-direction:column}
+.logo-name{font-size:13px;font-weight:800;letter-spacing:.2em;color:#fff;text-transform:uppercase;line-height:1}
+.logo-sub{font-size:7px;letter-spacing:.28em;color:rgba(140,180,230,0.8);text-transform:uppercase;font-weight:600;margin-top:2px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:12.5px;font-weight:400;text-decoration:none;color:rgba(255,255,255,0.5);letter-spacing:.03em;transition:color .2s}
+.nav-links a.active{color:rgba(255,255,255,0.92)}
+.nav-links a.active span{display:block;height:2px;background:rgba(100,160,230,0.7);border-radius:1px;margin-top:3px}
+.nav-links a:hover{color:rgba(255,255,255,0.78)}
+.btn-nav{
+  background:rgba(255,255,255,0.07);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:10px;padding:8px 20px;
+  font-size:12.5px;font-weight:500;
+  color:rgba(255,255,255,0.88);
+  cursor:pointer;font-family:'DM Sans',sans-serif;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.1), 0 2px 12px rgba(0,0,0,0.3)
+}
+
+.content{position:relative;z-index:10;display:flex;flex:1;align-items:center;padding:10px 32px 16px}
+.left{flex:0 0 42%;max-width:42%}
+
+h1{font-family:'Syne',sans-serif;font-weight:900;line-height:1.04;margin-bottom:14px;letter-spacing:-.02em}
+.hw{display:block;font-size:52px;color:#ffffff}
+.hg{display:block;font-size:52px;color:#ffffff}
+
+.sub{font-size:12.5px;line-height:1.8;color:rgba(255,255,255,0.38);margin-bottom:22px;max-width:340px}
+
+.btn-explore{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:11px 24px;border-radius:10px;
+  background:rgba(255,255,255,0.09);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.18);
+  color:rgba(255,255,255,0.9);font-size:13px;font-weight:500;
+  cursor:pointer;font-family:'DM Sans',sans-serif;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.12), 0 4px 20px rgba(0,0,0,0.25)
+}
+
+.right{flex:1;display:flex;align-items:center;justify-content:center;position:relative}
+.scene{position:relative;width:340px;height:360px}
+
+.glow-behind{position:absolute;top:48%;left:50%;transform:translate(-50%,-52%);width:280px;height:280px;border-radius:50%;background:radial-gradient(circle, rgba(60,110,220,0.22) 0%, rgba(40,80,180,0.12) 45%, transparent 70%);filter:blur(20px)}
+
+.buildings{position:absolute;bottom:68px;left:50%;transform:translateX(-50%);display:flex;align-items:flex-end;gap:4px}
+.b{border-radius:3px 3px 2px 2px;position:relative;overflow:hidden}
+.b::after{content:'';position:absolute;inset:0;background:linear-gradient(95deg,rgba(255,255,255,0.12) 0%,transparent 35%);pointer-events:none}
+
+.b-s1{width:18px;height:55px;background:linear-gradient(175deg,#4a7ab8 0%,#2a4e90 50%,#1a3270 100%)}
+.b-s2{width:26px;height:82px;background:linear-gradient(172deg,#5588c4 0%,#2f5598 50%,#1e3d80 100%)}
+.b-s3{width:22px;height:62px;background:linear-gradient(172deg,#4a80be 0%,#2a4e90 55%,#1c3578 100%)}
+.b-main{width:42px;height:188px;background:linear-gradient(172deg,#6090cc 0%,#3060a8 35%,#1e40a0 65%,#152e80 100%);box-shadow:0 0 30px rgba(50,100,200,0.3)}
+.b-main-tip{position:absolute;top:-20px;left:50%;transform:translateX(-50%);width:2px;height:20px;background:linear-gradient(180deg,transparent,rgba(140,190,255,0.6))}
+.b-main-dot{position:absolute;top:-26px;left:50%;transform:translateX(-50%);width:6px;height:6px;border-radius:50%;background:rgba(160,210,255,0.8);box-shadow:0 0 10px rgba(140,190,255,0.7)}
+.b-r1{width:36px;height:158px;background:linear-gradient(168deg,#aac8e8 0%,#5888c0 25%,#2a54a0 55%,#1a3a88 100%);box-shadow:0 0 20px rgba(40,80,180,0.2)}
+.b-r1-top{position:absolute;top:-14px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:11px solid transparent;border-right:11px solid transparent;border-bottom:14px solid #5888c0}
+.b-r2{width:28px;height:94px;background:linear-gradient(170deg,#4a80bc 0%,#2a50a0 55%,#1a3888 100%)}
+.b-r3{width:20px;height:58px;background:linear-gradient(170deg,#4272aa 0%,#24468a 55%,#162e74 100%)}
+
+.wins{display:grid;grid-template-columns:1fr 1fr;gap:2px;padding:5px 4px 0;margin-top:4px}
+.w{height:4px;border-radius:1px}
+.won{background:rgba(180,220,255,0.65)}
+.wof{background:rgba(255,255,255,0.1)}
+
+.plat-wrap{position:absolute;bottom:48px;left:50%;transform:translateX(-50%)}
+.p1{width:262px;height:22px;border-radius:50%;background:linear-gradient(180deg,rgba(120,180,255,0.7) 0%,rgba(80,140,230,0.4) 100%);box-shadow:0 0 35px rgba(80,150,255,0.4), 0 8px 24px rgba(20,60,180,0.3)}
+.p2{width:218px;height:14px;border-radius:50%;background:linear-gradient(180deg,rgba(100,160,255,0.35) 0%,rgba(60,120,220,0.15) 100%);margin:-2px auto 0;opacity:.9}
+.p3{width:175px;height:9px;border-radius:50%;background:rgba(80,140,255,0.15);margin:-1px auto 0;opacity:.7}
+.glow-floor{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);width:280px;height:16px;border-radius:50%;background:rgba(80,150,255,0.2);filter:blur(14px)}
+
+.cloud{position:absolute;animation:cfl 6s ease-in-out infinite}
+.cloud2{animation-duration:8s;animation-direction:reverse}
+.cb{border-radius:24px;background:rgba(255,255,255,0.13);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.22);box-shadow:inset 0 1px 0 rgba(255,255,255,0.15)}
+.cp{position:absolute;border-radius:50%;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(8px)}
+
+.fc{
+  position:absolute;
+  backdrop-filter:blur(26px);-webkit-backdrop-filter:blur(26px);
+  border-radius:14px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.18), 0 8px 32px rgba(0,0,0,0.25)
+}
+.fc1{right:-16px;top:18px;padding:11px 15px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);animation:bob 4s ease-in-out infinite}
+.fc2{left:-16px;bottom:108px;padding:9px 13px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);animation:bob 5.5s ease-in-out infinite reverse}
+.fc-lbl{font-size:9px;color:rgba(255,255,255,0.42);font-weight:500;margin-bottom:4px;letter-spacing:.04em}
+.fc-val{font-family:'Syne',sans-serif;font-size:20px;font-weight:900;color:rgba(255,255,255,0.95);line-height:1}
+.mbars{display:flex;align-items:flex-end;gap:2.5px;margin-top:7px}
+.mb{width:4px;border-radius:2px 2px 0 0;background:rgba(100,160,230,0.55)}
+.fc-row{display:flex;align-items:center;gap:9px}
+.fc-ico{width:24px;height:24px;border-radius:50%;background:rgba(70,130,210,0.3);border:1px solid rgba(100,160,230,0.35);display:flex;align-items:center;justify-content:center}
+.fc-il{font-size:10px;font-weight:600;color:rgba(255,255,255,0.88)}
+.fc-is{font-size:8.5px;color:rgba(255,255,255,0.38);margin-top:2px}
+
+.pt{position:absolute;border-radius:50%;animation:ptP 3s ease-in-out infinite}
+
+.dots{position:relative;z-index:10;display:flex;justify-content:center;gap:7px;padding-bottom:14px}
+.dot{height:6px;border-radius:3px;cursor:pointer;transition:all .3s}
+.dot.a{width:20px;background:rgba(120,180,240,0.7)}
+.dot:not(.a){width:6px;background:rgba(255,255,255,0.18)}
+
+.botlbl{position:absolute;bottom:10px;right:28px;z-index:10;display:flex;align-items:center;gap:8px}
+.bl{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,0.25);font-weight:500}
+.bldiv{width:1px;height:10px;background:rgba(255,255,255,0.12)}
+
+@keyframes cfl{0%,100%{transform:translateY(0)}40%{transform:translateY(-9px) translateX(3px)}70%{transform:translateY(-4px) translateX(-2px)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes ptP{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:.8;transform:scale(1.3)}}
+.fsc{animation:flt 4.5s ease-in-out infinite}
+</style>
+
+<div class="hero">
+  <div class="blob-dark"></div>
+  <div class="blob-tr"></div>
+  <div class="blob-center"></div>
+
+  <nav>
+    <div class="logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M2 20L12 4l10 16" stroke="rgba(255,255,255,0.9)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M7 20l5-8 5 8" stroke="rgba(120,180,240,0.85)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="logo-text">
+        <div class="logo-name">Apex</div>
+        <div class="logo-sub">Solutions</div>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Home<span></span></a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <button class="btn-nav">Get started</button>
+  </nav>
+
+  <div class="content">
+    <div class="left">
+      <h1>
+        <span class="hw">Innovate.</span>
+        <span class="hw">Transform.</span>
+        <span class="hw">Thrive.</span>
+      </h1>
+      <p class="sub">Innovate to turn brand ideas and put future thinking into action. We empower businesses to innovate at scale and compete in tomorrow's world.</p>
+      <button class="btn-explore">
+        Explore our services
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3.5l3.5 3.5L8 10.5" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <div class="right">
+      <div class="glow-behind"></div>
+      <div class="scene fsc">
+
+        <div class="cloud" style="top:14px;left:8px">
+          <div class="cb" style="width:80px;height:32px"></div>
+          <div class="cp" style="width:48px;height:32px;top:-16px;left:14px"></div>
+          <div class="cp" style="width:30px;height:22px;top:-10px;left:44px"></div>
+        </div>
+        <div class="cloud cloud2" style="top:44px;right:10px">
+          <div class="cb" style="width:64px;height:26px"></div>
+          <div class="cp" style="width:36px;height:24px;top:-12px;left:10px"></div>
+          <div class="cp" style="width:22px;height:18px;top:-8px;left:38px"></div>
+        </div>
+
+        <div class="buildings">
+          <div class="b b-s1">
+            <div class="wins" style="margin-top:6px">
+              <div class="w wof"></div><div class="w won"></div>
+              <div class="w won"></div><div class="w wof"></div>
+              <div class="w wof"></div><div class="w won"></div>
+            </div>
+          </div>
+          <div class="b b-s2">
+            <div class="wins">
+              <div class="w won"></div><div class="w wof"></div>
+              <div class="w wof"></div><div class="w won"></div>
+              <div class="w won"></div><div class="w wof"></div>
+              <div class="w wof"></div><div class="w won"></div>
+              <div class="w won"></div><div class="w wof"></div>
+            </div>
+          </div>
+          <div class="b b-s3">
+            <div class="wins">
+              <div class="w wof"></div><div class="w won"></div>
+              <div class="w won"></div><div class="w wof"></div>
+              <div class="w wof"></div><div class="w won"></div>
+              <div class="w won"></div><div class="w wof"></div>
+            </div>
+          </div>
+          <div class="b b-main" style="position:relative">
+            <div class="b-main-tip"></div>
+            <div class="b-main-dot"></div>
+            <div class="wins">
+              <div class="w won"></div><div class="w wof"></div>
+              <div class="w wof"></div><div class="w won"></div>
+              <div class="w won"></div><div class="w wof"></div>
+              <div class="w wof"></div><div class="w won"></div>
+              <div class="w won"></div><div class="w wof"></div>
+              <div class="w wof"></div><div class="w won"></div>
+              <div class="w won"></div><div class="w wof"></div>
+              <div class="w wof"></div><div class="w won"></div>
+              <div class="w won"></div><div class="w wof"></div>
+              <div class="w wof"></div><div class="w wof"></div>
+            </div>
+          </div>
+          <div class="b b-r1" style="position:relative">
+            <div class="b-r1-top"></div>
+            <div class="wins">
+              <div class="w wof"></div><div class="w won"></div>
+              <div class="w won"></div><div class="w wof"></div>
+              <div class="w wof"></div><div class="w won"></div>
+              <div class="w won"></div><div class="w wof"></div>
+              <div class="w wof"></div><div class="w won"></div>
+              <div class="w won"></div><div class="w wof"></div>
+              <div class="w wof"></div><div class="w won"></div>
+              <div class="w wof"></div><div class="w wof"></div>
+            </div>
+          </div>
+          <div class="b b-r2">
+            <div class="wins">
+              <div class="w won"></div><div class="w wof"></div>
+              <div class="w wof"></div><div class="w won"></div>
+              <div class="w won"></div><div class="w wof"></div>
+              <div class="w wof"></div><div class="w won"></div>
+              <div class="w won"></div><div class="w wof"></div>
+              <div class="w won"></div><div class="w wof"></div>
+            </div>
+          </div>
+          <div class="b b-r3">
+            <div class="wins">
+              <div class="w wof"></div><div class="w won"></div>
+              <div class="w won"></div><div class="w wof"></div>
+              <div class="w wof"></div><div class="w won"></div>
+              <div class="w won"></div><div class="w wof"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="plat-wrap">
+          <div class="p1"></div>
+          <div class="p2"></div>
+          <div class="p3"></div>
+        </div>
+        <div class="glow-floor"></div>
+
+        <div class="fc fc1">
+          <div class="fc-lbl">Productivity</div>
+          <div class="fc-val">+142%</div>
+          <div class="mbars">
+            <div class="mb" style="height:8px"></div>
+            <div class="mb" style="height:14px"></div>
+            <div class="mb" style="height:10px"></div>
+            <div class="mb" style="height:20px"></div>
+            <div class="mb" style="height:16px"></div>
+            <div class="mb" style="height:24px"></div>
+          </div>
+        </div>
+        <div class="fc fc2">
+          <div class="fc-row">
+            <div class="fc-ico">
+              <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 5.5l2.5 2.5 4.5-4.5" stroke="rgba(140,200,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div class="fc-il">Projects</div>
+              <div class="fc-is">500+ delivered</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt" style="top:16%;left:5%;width:5px;height:5px;background:rgba(120,180,255,0.6);box-shadow:0 0 8px rgba(120,180,255,0.4);animation-delay:0s"></div>
+        <div class="pt" style="top:10%;right:8%;width:4px;height:4px;background:rgba(160,210,255,0.5);animation-delay:.9s"></div>
+        <div class="pt" style="top:68%;left:3%;width:5px;height:5px;background:rgba(100,160,240,0.5);box-shadow:0 0 8px rgba(100,160,240,0.35);animation-delay:1.6s"></div>
+        <div class="pt" style="top:75%;right:5%;width:4px;height:4px;background:rgba(120,180,255,0.45);animation-delay:.5s"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dots">
+    <div class="dot a"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div class="botlbl">
+    <span class="bl">Projects</span>
+    <div class="bldiv"></div>
+    <span class="bl">Services</span>
+  </div>
+</div>
