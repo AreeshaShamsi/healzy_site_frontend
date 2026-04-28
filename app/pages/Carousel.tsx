@@ -190,22 +190,12 @@ function LogoItem({ src, alt }: { src: string; alt: string }) {
       duration: 0.28,
       ease: "power2.out",
     });
-    gsap.to(itemRef.current, {
-      filter: "grayscale(0%) opacity(1)",
-      duration: 0.25,
-      ease: "power2.out",
-    });
   };
 
   const handleMouseLeave = () => {
     gsap.to(itemRef.current, {
       scale: 1,
       duration: 0.38,
-      ease: "power2.inOut",
-    });
-    gsap.to(itemRef.current, {
-      filter: "grayscale(100%) opacity(0.45)",
-      duration: 0.35,
       ease: "power2.inOut",
     });
   };
@@ -221,8 +211,7 @@ function LogoItem({ src, alt }: { src: string; alt: string }) {
         style={{
           width: "clamp(140px, 18vw, 300px)",
           height: "clamp(56px, 9vw, 150px)",
-          filter: "grayscale(100%) opacity(0.45)",
-          willChange: "transform, filter",
+          willChange: "transform",
         }}
       >
         <Image

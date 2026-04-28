@@ -3,6 +3,7 @@ import Carousel from './pages/Carousel'
 import HeroSection from './pages/HeroSection'
 import Footer from './components/Footer'
 import WhyUsSection from './pages/WhyUse'
+import FAQ from './pages/FAQ'
 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <HeroSection />
       <WhyUsSection />
       <Carousel />
+      <FAQ/>
       <Footer/>
     </main>
   )

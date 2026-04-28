@@ -17,13 +17,13 @@ gsap.registerPlugin(ScrollTrigger);
 const CARDS = [
   {
     icon: FaHeartbeat,
-    title: "Patient Acquisition",
-    desc: "Precision campaigns that convert high-intent patients into booked appointments — filling your schedule with the right cases.",
+    title: "Built on Healthcare Marketing Services That Matter",
+    desc: "Our healthcare marketing services are designed around real outcomes — patient flow, trust, and sustainable growth.",
   },
   {
     icon: FaUserMd,
-    title: "Physician Branding",
-    desc: "Elevate doctors as trusted authorities with personal branding built on clinical credibility and a strong digital presence.",
+    title: "Beyond a Digital Marketing Agency for Doctors",
+    desc: "As a digital marketing agency for doctors, we do more than campaigns — we build systems that support long-term patient acquisition."
   },
   {
     icon: FaHospitalAlt,
@@ -32,18 +32,18 @@ const CARDS = [
   },
   {
     icon: FaChartLine,
-    title: "Data-Driven ROI",
-    desc: "Every rupee tracked. Real-time dashboards measure CPL, OPD footfall and admission rates — always know what's working.",
+    title: "Strong Emphasis on Retention",
+    desc: "Our approach ensures that patient inquiries are nurtured, followed up, and converted into repeat visits and relationships.",
   },
   {
     icon: FaBullhorn,
-    title: "Instant Brand Awareness",
-    desc: "Hyper-local campaigns place your hospital front-and-center when patients search — dominating Google, Meta & more.",
+    title: "Understanding of Patient Behaviour",
+    desc: "We understand how patients search, evaluate, and choose healthcare providers, and align your system accordingly.",
   },
   {
     icon: FaShieldAlt,
-    title: "Reputation Management",
-    desc: "We protect and proactively build 5-star reputations across Google, Practo, and Justdial — platforms patients trust most.",
+    title: "Structured and Measurable Systems",
+    desc: "Unlike typical healthcare marketing agencies, we create structured systems that are scalable and driven by measurable results.",
   },
 ];
 
@@ -144,12 +144,8 @@ export default function WhyUsSection() {
               Why us?
             </h2>
             <p className="text-slate-600 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-              HELLO LENDING has just revolutionized and innovated the small
-              business funding industry with our Digital Approval Engine, Online
-              Checkout, and Same-day Funding! You are dealing directly with the
-              funding source; we do not shop your information. Approval rates are
-              among the highest in the industry, and funding can take place the
-              same day without shuffling any paper.
+             Many healthcare marketing agencies focus only on generating leads.
+We help you build a system that not only brings patient inquiries but also converts and retains them for long-term growth.
             </p>
           </div>
 
