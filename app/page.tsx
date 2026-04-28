@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar'
+import Carousel from './pages/Carousel'
 import HeroSection from './pages/HeroSection'
 
 
@@ -8,6 +9,7 @@ export default function Home() {
 
       <Navbar /> 
       <HeroSection />
+      <Carousel />
     </main>
   )
 }
