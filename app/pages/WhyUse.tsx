@@ -10,7 +10,7 @@ import {
   FaShieldAlt,
 } from "react-icons/fa";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,24 +48,33 @@ const CARDS = [
 ];
 
 export default function WhyUsSection() {
-  const pinWrapRef = useRef(null);
-  const trackRef = useRef(null);
+  const pinWrapRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const raf = requestAnimationFrame(() => {
-      const pinWrap = pinWrapRef.current;
-      const track = trackRef.current;
-      if (!pinWrap || !track) return;
+    if (typeof window === "undefined") return;
 
-      const getMove = () => track.scrollWidth - window.innerWidth;
+    const pinWrap = pinWrapRef.current;
+    const track = trackRef.current;
+    if (!pinWrap || !track) return;
 
-      const tween = gsap.to(track, {
+    let initialized = false;
+    let tween: gsap.core.Tween | null = null;
+    let st: ScrollTrigger | null = null;
+    const cardTweens: gsap.core.Tween[] = [];
+
+    const getMove = () => Math.max(0, track.scrollWidth - window.innerWidth);
+
+    const init = () => {
+      if (initialized) return;
+      initialized = true;
+
+      tween = gsap.to(track, {
         x: () => -getMove(),
         ease: "none",
-        paused: true,
       });
 
-      const st = ScrollTrigger.create({
+      st = ScrollTrigger.create({
         trigger: pinWrap,
         start: "top top",
         end: () => `+=${getMove()}`,
@@ -73,11 +82,10 @@ export default function WhyUsSection() {
         scrub: 1.5,
         animation: tween,
         invalidateOnRefresh: true,
-        anticipatePin: 1,
       });
 
       track.querySelectorAll(".why-card").forEach((card) => {
-        gsap.fromTo(
+        const cardTween = gsap.fromTo(
           card,
           { opacity: 0, y: 50 },
           {
@@ -87,22 +95,39 @@ export default function WhyUsSection() {
             duration: 1,
             scrollTrigger: {
               trigger: card,
-              containerAnimation: tween,
-              start: "left 95%",
+              containerAnimation: tween!,
+              start: "left 90%",
               end: "left 50%",
               scrub: true,
             },
           }
         );
+        cardTweens.push(cardTween);
       });
 
-      return () => {
-        st.kill();
-        tween.kill();
-      };
-    });
+      ScrollTrigger.refresh();
+    };
 
-    return () => cancelAnimationFrame(raf);
+    const onResize = () => ScrollTrigger.refresh();
+
+    if ("fonts" in document) {
+      document.fonts.ready.then(init);
+    } else {
+      window.addEventListener("load", init);
+    }
+
+    window.addEventListener("load", init);
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      window.removeEventListener("load", init);
+      window.removeEventListener("resize", onResize);
+
+      cardTweens.forEach((t) => t.kill());
+      st?.kill();
+      tween?.kill();
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
   }, []);
 
   return (
@@ -131,7 +156,7 @@ export default function WhyUsSection() {
           {/* ─── Card track ────────────────────────────────────────────── */}
           <div
             ref={trackRef}
-            className="flex items-stretch gap-6 pl-[8vw] pr-[8vw] w-max will-change-transform"
+            className="flex items-stretch gap-6 pl-[8vw] pr-[8vw] w-max min-w-max will-change-transform"
           >
             {CARDS.map(({ icon: Icon, title, desc }, i) => (
               <div
