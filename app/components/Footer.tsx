@@ -1,40 +1,47 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function FooterSection() {
   const watermarkRef = useRef<HTMLDivElement>(null);
+  const measureRef   = useRef<HTMLSpanElement>(null);
   const footerRef    = useRef<HTMLElement>(null);
+  const [contentHeight, setContentHeight] = useState(0);
 
   useEffect(() => {
     const fit = () => {
-      const el     = watermarkRef.current;
-      const footer = footerRef.current;
-      if (!el || !footer) return;
+      const wm      = watermarkRef.current;
+      const measure = measureRef.current;
+      const footer  = footerRef.current;
+      if (!wm || !measure || !footer) return;
 
       const footerWidth = footer.clientWidth;
 
-      // Hide watermark on small screens
       if (footerWidth < 640) {
-        el.style.display = "none";
+        wm.style.display = "none";
         return;
       }
 
-      // Fix font size at a moderate height, then scale horizontally to fill width
-      const fixedSize = 120; // controls the height of the watermark text
-      el.style.display    = "block";
-      el.style.fontSize   = fixedSize + "px";
-      el.style.transform  = "none";
-      el.style.transformOrigin = "left center";
+      wm.style.display = "block";
 
-      // Measure natural text width at fixed size
-      requestAnimationFrame(() => {
-        const naturalWidth = el.scrollWidth;
-        if (!naturalWidth) return;
-        const scaleX = footerWidth / naturalWidth;
-        el.style.transform = `scaleX(${scaleX})`;
-      });
+      // Binary-search the right font size using the off-screen measurer
+      let lo = 10, hi = 600;
+      while (lo < hi - 1) {
+        const mid = Math.floor((lo + hi) / 2);
+        measure.style.fontSize = mid + "px";
+        if (measure.offsetWidth <= footerWidth) {
+          lo = mid;
+        } else {
+          hi = mid;
+        }
+      }
+
+      wm.style.fontSize = lo + "px";
+
+      // Record content height so we can position watermark just below it
+      const content = footer.querySelector<HTMLDivElement>(".footer-content");
+      if (content) setContentHeight(content.offsetHeight);
     };
 
     fit();
@@ -82,12 +89,30 @@ export default function FooterSection() {
   return (
     <footer
       ref={footerRef}
-      className="relative w-full overflow-hidden"
-      style={{ background: "#f0f5f8" }}
+      className="relative w-full"
+      style={{ background: "#f0f5f8", overflow: "hidden" }}
     >
+      {/* Off-screen span used purely for measuring text width at any font size */}
+      <span
+        ref={measureRef}
+        aria-hidden="true"
+        style={{
+          position: "fixed",
+          top: "-9999px",
+          left: "-9999px",
+          visibility: "hidden",
+          whiteSpace: "nowrap",
+          fontWeight: 900,
+          lineHeight: 1,
+          pointerEvents: "none",
+        }}
+      >
+        healzy
+      </span>
+
       {/* ── Main content ──────────────────────────────────────────────────── */}
       <div
-        className="relative"
+        className="footer-content relative"
         style={{ zIndex: 1, padding: "3rem 4rem 0" }}
       >
         <div
@@ -183,19 +208,20 @@ export default function FooterSection() {
         </div>
       </div>
 
-      {/* ── Full-width watermark — below content, hidden on small screens ── */}
+      {/* ── Watermark — sits below content, stretches full width ── */}
       <div
         ref={watermarkRef}
         aria-hidden="true"
-        className="pointer-events-none select-none whitespace-nowrap"
         style={{
-          display: "none",                   /* JS controls this */
+          display: "none",             /* JS sets to block on sm+ */
           fontWeight: 900,
           color: "rgba(26,127,232,0.09)",
           lineHeight: 1,
-          fontSize: "120px",                 /* fixed height — JS scales width */
+          whiteSpace: "nowrap",
+          pointerEvents: "none",
+          userSelect: "none",
           letterSpacing: "normal",
-          transformOrigin: "left center",
+          fontSize: "120px",           
         }}
       >
         healzy
