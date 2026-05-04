@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import {
   FaHeartbeat,
   FaUserMd,
@@ -51,82 +51,69 @@ export default function WhyUsSection() {
   const pinWrapRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (typeof window === "undefined") return;
+    console.log("WhyUse mounted");
 
     const pinWrap = pinWrapRef.current;
     const track = trackRef.current;
     if (!pinWrap || !track) return;
 
-    let initialized = false;
-    let tween: gsap.core.Tween | null = null;
-    let st: ScrollTrigger | null = null;
-    const cardTweens: gsap.core.Tween[] = [];
-
-    const getMove = () => Math.max(0, track.scrollWidth - window.innerWidth);
+    let disposed = false;
+    let ctx: gsap.Context | null = null;
 
     const init = () => {
-      if (initialized) return;
-      initialized = true;
+      if (disposed) return;
+      ctx = gsap.context(() => {
+        const getMove = () => Math.max(0, track.scrollWidth - window.innerWidth);
 
-      tween = gsap.to(track, {
-        x: () => -getMove(),
-        ease: "none",
-      });
+        const tween = gsap.to(track, {
+          x: () => -getMove(),
+          ease: "none",
+        });
 
-      st = ScrollTrigger.create({
-        trigger: pinWrap,
-        start: "top top",
-        end: () => `+=${getMove()}`,
-        pin: true,
-        scrub: 1.5,
-        animation: tween,
-        invalidateOnRefresh: true,
-      });
+        ScrollTrigger.create({
+          trigger: pinWrap,
+          start: "top top",
+          end: () => `+=${getMove()}`,
+          pin: true,
+          scrub: 1.5,
+          animation: tween,
+          invalidateOnRefresh: true,
+        });
 
-      track.querySelectorAll(".why-card").forEach((card) => {
-        const cardTween = gsap.fromTo(
-          card,
-          { opacity: 0, y: 50 },
-          {
-            opacity: 1,
-            y: 0,
-            ease: "power2.out",
-            duration: 1,
-            scrollTrigger: {
-              trigger: card,
-              containerAnimation: tween!,
-              start: "left 90%",
-              end: "left 50%",
-              scrub: true,
-            },
-          }
-        );
-        cardTweens.push(cardTween);
-      });
-
+        track.querySelectorAll(".why-card").forEach((card) => {
+          gsap.fromTo(
+            card,
+            { opacity: 0, y: 50 },
+            {
+              opacity: 1,
+              y: 0,
+              ease: "power2.out",
+              duration: 1,
+              scrollTrigger: {
+                trigger: card,
+                containerAnimation: tween,
+                start: "left 90%",
+                end: "left 50%",
+                scrub: true,
+              },
+            }
+          );
+        });
+      }, pinWrap);
       ScrollTrigger.refresh();
     };
 
     const onResize = () => ScrollTrigger.refresh();
-
-    if ("fonts" in document) {
-      document.fonts.ready.then(init);
-    } else {
-      window.addEventListener("load", init);
-    }
-
-    window.addEventListener("load", init);
+    const fontReady = "fonts" in document ? document.fonts.ready : Promise.resolve();
+    fontReady.then(init);
     window.addEventListener("resize", onResize);
 
     return () => {
-      window.removeEventListener("load", init);
+      disposed = true;
       window.removeEventListener("resize", onResize);
-
-      cardTweens.forEach((t) => t.kill());
-      st?.kill();
-      tween?.kill();
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      ctx?.revert();
     };
   }, []);
 

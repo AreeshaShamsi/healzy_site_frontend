@@ -1,21 +1,19 @@
-import Navbar from './components/Navbar'
-import Carousel from './pages/Carousel'
-import HeroSection from './pages/HeroSection'
-import Footer from './components/Footer'
-import WhyUsSection from './pages/WhyUse'
-import FAQ from './pages/FAQ'
+import CinematicScroll from "../components/CinematicScroll";
+import Navbar from "./components/Navbar";
+import WhyUse from "./pages/WhyUse";
+import FAQ from "./pages/FAQ";
+import Footer from "./components/Footer";
 
 
 export default function Home() {
   return (
     <main>
+      <Navbar/>
+      <CinematicScroll />
+    
+      
 
-      <Navbar /> 
-      <HeroSection />
-      <WhyUsSection />
-      <Carousel />
-      <FAQ/>
-      <Footer/>
+      
     </main>
-  )
+  );
 }
