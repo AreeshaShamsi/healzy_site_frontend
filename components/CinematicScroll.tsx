@@ -208,7 +208,7 @@ export default function CinematicScroll({ children }: CinematicScrollProps) {
   }, [isReady]);
 
   return (
-    <section ref={sectionRef} className={`relative w-full ${SECTION_HEIGHT_CLASS}`}>
+    <section id="hero-cinematic" ref={sectionRef} className={`relative w-full ${SECTION_HEIGHT_CLASS}`}>
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         <canvas ref={canvasRef} className="absolute inset-0 z-0 h-full w-full" />
 

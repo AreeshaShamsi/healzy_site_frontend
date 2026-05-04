@@ -4,13 +4,25 @@ import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isHeroVisible, setIsHeroVisible] = useState(true);
   const [active, setActive] = useState("Home");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const heroSection = document.getElementById("hero-cinematic");
+    if (!heroSection) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsHeroVisible(entry.isIntersecting);
+      },
+      {
+        root: null,
+        threshold: 0.01,
+      }
+    );
+
+    observer.observe(heroSection);
+    return () => observer.disconnect();
   }, []);
 
   const navItems = ["Home", "About", "Services", "Portfolio", "Contact"];
@@ -217,8 +229,14 @@ export default function Navbar() {
         }
       `}</style>
 
-      <div className={`nav-root${scrolled ? " scrolled" : ""}`}>
-        <div className="nav-pill">
+      <div
+        className={`nav-root transition-all duration-300 ease-out fixed top-0 left-0 w-full z-50 ${
+          isHeroVisible
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-6 pointer-events-none"
+        }`}
+      >
+        <div className="nav-pill bg-white/70 backdrop-blur-md">
           <div className="nav-inner">
 
             {/* Logo */}

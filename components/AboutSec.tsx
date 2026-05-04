@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -22,7 +21,6 @@ export default function AboutSection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // ── entrance timeline (scroll-triggered) ──────────────────────────
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -32,7 +30,6 @@ export default function AboutSection() {
         },
       });
 
-      // Left column images
       tl.fromTo(
         img1Ref.current,
         { y: 60, opacity: 0, scale: 0.95 },
@@ -51,8 +48,6 @@ export default function AboutSection() {
           { scale: 1, opacity: 1, duration: 0.7, ease: "back.out(1.7)" },
           0.1
         )
-
-        // Right column
         .fromTo(
           profileRef.current,
           { x: 40, opacity: 0 },
@@ -84,7 +79,6 @@ export default function AboutSection() {
           0.55
         );
 
-      // ── parallax on the two images while scrolling ─────────────────────
       gsap.to(img1Ref.current, {
         y: -30,
         ease: "none",
@@ -107,7 +101,6 @@ export default function AboutSection() {
         },
       });
 
-      // ── floating blob ──────────────────────────────────────────────────
       gsap.to(blobRef.current, {
         y: -12,
         x: 6,
@@ -124,65 +117,61 @@ export default function AboutSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-[#EFF6FF] overflow-hidden py-16 px-4 sm:px-8 lg:px-20"
+      className="relative w-full min-h-screen bg-[#EFF6FF] overflow-hidden flex items-center px-4 sm:px-8 lg:px-20"
     >
-      {/* ── subtle background grid ───────────────────────────────────── */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            "linear-gradient(#1e40af 1px,transparent 1px),linear-gradient(90deg,#1e40af 1px,transparent 1px)",
-          backgroundSize: "40px 40px",
-        }}
-      />
+      <div className="relative mx-auto max-w-7xl w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-20 py-20 lg:py-24">
 
-      <div className="relative mx-auto max-w-6xl flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-        {/* ════════════════════════════════════════════════
+        {/* ══════════════════════════════════════
             LEFT — image collage
-        ════════════════════════════════════════════════ */}
+        ══════════════════════════════════════ */}
         <div
           ref={leftColRef}
-          className="relative flex-shrink-0 w-full lg:w-[46%] h-[400px] sm:h-[480px]"
+          className="relative flex-shrink-0 w-full lg:w-[48%] h-[420px] sm:h-[520px] lg:h-[620px]"
         >
           {/* Main tall image */}
           <div
             ref={img1Ref}
-            className="absolute left-0 top-0 w-[55%] h-full rounded-2xl overflow-hidden shadow-xl"
+            className="absolute left-0 top-0 w-[55%] h-[88%] rounded-2xl overflow-hidden shadow-2xl"
             style={{ opacity: 0 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80"
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
               alt="Team collaboration"
               className="w-full h-full object-cover"
             />
           </div>
 
-          {/* Teal decorative blob */}
+          {/* Floating blue blob */}
           <div
             ref={blobRef}
-            className="absolute left-[44%] top-[12%] w-24 h-24 rounded-3xl bg-[#3B82F6] rotate-12 shadow-lg z-10"
+            className="absolute left-[44%] top-[10%] w-24 h-24 lg:w-28 lg:h-28 rounded-3xl bg-[#3B82F6] rotate-12 shadow-xl z-10"
             style={{ opacity: 0 }}
           />
 
           {/* Bottom-right image */}
           <div
             ref={img2Ref}
-            className="absolute right-0 bottom-0 w-[50%] h-[62%] rounded-2xl overflow-hidden shadow-xl"
+            className="absolute right-0 bottom-0 w-[50%] h-[60%] rounded-2xl overflow-hidden shadow-2xl"
             style={{ opacity: 0 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80"
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
               alt="Office team working"
               className="w-full h-full object-cover"
             />
           </div>
+
+          {/* Decorative ring */}
+          <div className="absolute -bottom-8 -left-8 w-36 h-36 rounded-full border-[10px] border-blue-200 opacity-60 pointer-events-none" />
         </div>
 
-        {/* ════════════════════════════════════════════════
+        {/* ══════════════════════════════════════
             RIGHT — text content
-        ════════════════════════════════════════════════ */}
-        <div ref={rightColRef} className="flex-1 flex flex-col gap-6">
+        ══════════════════════════════════════ */}
+        <div
+          ref={rightColRef}
+          className="flex-1 flex flex-col gap-5 lg:gap-6"
+        >
           {/* Profile card */}
           <div
             ref={profileRef}
@@ -207,7 +196,7 @@ export default function AboutSection() {
           {/* Quote icon */}
           <div
             ref={quoteRef}
-            className="text-blue-500 text-5xl font-serif leading-none select-none"
+            className="text-blue-500 text-6xl font-serif leading-none select-none"
             style={{ opacity: 0 }}
           >
             &#8220;
@@ -229,7 +218,7 @@ export default function AboutSection() {
           {/* Heading */}
           <h2
             ref={headingRef}
-            className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
             style={{ opacity: 0 }}
           >
             About Us &ndash; Building Better
@@ -240,7 +229,7 @@ export default function AboutSection() {
           {/* Body */}
           <p
             ref={bodyRef}
-            className="text-gray-500 text-sm sm:text-base leading-relaxed max-w-md"
+            className="text-gray-500 text-sm sm:text-base leading-relaxed max-w-lg"
             style={{ opacity: 0 }}
           >
             Flytech is a modern IT solution provider focused on helping
