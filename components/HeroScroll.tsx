@@ -214,10 +214,20 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
     ].join(", "),
   };
 
+  // Shared paragraph style used in both cards
+  const sharedParaStyle: React.CSSProperties = {
+    fontFamily: "'Plus Jakarta Sans', sans-serif",
+    fontSize: "14px",
+    lineHeight: 1.70,
+    color: "rgba(0,0,0,0.52)",
+    position: "relative",
+    zIndex: 2,
+  };
+
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600;1,700&family=Outfit:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600;1,700&family=Outfit:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
 
         .gs::before {
           content: '';
@@ -308,10 +318,7 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
                 }}
               />
 
-              <p
-                className="cinematic-body-serif"
-                style={{ margin: "0 0 24px", position: "relative", zIndex: 2 }}
-              >
+              <p style={{ ...sharedParaStyle, margin: "0 0 24px" }}>
                 We help healthcare businesses acquire new patients, convert
                 inquiries into appointments, and retain them for long‑term growth.
               </p>
@@ -363,8 +370,6 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
                 }}
               />
 
-             
-
               <h2
                 className="cinematic-heading-secondary"
                 style={{ marginBottom: "10px", position: "relative", zIndex: 2 }}
@@ -372,17 +377,7 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
                 Why Many Healthcare<br />Businesses Struggle
               </h2>
 
-              <p
-                style={{
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
-                  fontSize: "14px",
-                  lineHeight: 1.70,
-                  color: "rgba(0,0,0,0.52)",
-                  marginBottom: "14px",
-                  position: "relative",
-                  zIndex: 2,
-                }}
-              >
+              <p style={{ ...sharedParaStyle, marginBottom: "14px" }}>
                 What worked earlier does not work today. Today's patients are
                 more informed, selective, and expect more.
               </p>
