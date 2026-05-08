@@ -25,7 +25,7 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  const navItems = ["Home", "About", "Services", "Portfolio", "Contact"];
+  const navItems = ["Home", "About", "Case Studies", "Blogs", "Contact"];
 
   return (
     <>
@@ -105,6 +105,7 @@ export default function Navbar() {
         }
         .nav-links a {
           display: block;
+          font-family: inherit;
           font-size: 13px;
           font-weight: 500;
           letter-spacing: 0.02em;
@@ -128,6 +129,7 @@ export default function Navbar() {
         /* CTA button — hidden on sm, visible on md+ */
         .cta-btn {
           display: none;
+          font-family: inherit;
           align-items: center;
           gap: 6px;
           padding: 8px 18px;
@@ -214,6 +216,7 @@ export default function Navbar() {
         }
         .mobile-menu a {
           display: block;
+          font-family: inherit;
           font-size: 14px;
           font-weight: 500;
           color: #475569;
@@ -236,7 +239,7 @@ export default function Navbar() {
             : "opacity-0 -translate-y-6 pointer-events-none"
         }`}
       >
-        <div className="nav-pill bg-white/70 backdrop-blur-md">
+        <div className="nav-pill bg-white/70 backdrop-blur-md font-brand-serif">
           <div className="nav-inner">
 
             {/* Logo */}
