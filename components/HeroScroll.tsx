@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 const TOTAL_FRAMES = 301;
 const SECTION_HEIGHT_CLASS = "h-[300vh]";
@@ -34,11 +34,11 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
   const [isReady, setIsReady] = useState(false);
   const progressMv = useMotionValue(0);
 
-  const leftPanelOpacity = useTransform(progressMv, [0, 0.0, 0.22, 0.28], [1, 1, 1, 0]);
-  const leftPanelY     = useTransform(progressMv, [0, 0.0, 0.22, 0.28], [0, 0, 0, -28]);
+  const leftPanelOpacity = useTransform(progressMv, [0, 0.0, 0.26, 0.34], [1, 1, 1, 0]);
+  const leftPanelY     = useTransform(progressMv, [0, 0.0, 0.26, 0.34], [0, 0, 0, -28]);
 
-  const rightPanelOpacity = useTransform(progressMv, [0.22, 0.28, 0.48, 0.54], [0, 1, 1, 0]);
-  const rightPanelY       = useTransform(progressMv, [0.22, 0.28, 0.48, 0.54], [28, 0, 0, -28]);
+  const rightPanelOpacity = useTransform(progressMv, [0.38, 0.46, 0.64, 0.72], [0, 1, 1, 0]);
+  const rightPanelY       = useTransform(progressMv, [0.38, 0.46, 0.64, 0.72], [28, 0, 0, -28]);
 
   const bullet1Opacity = useTransform(progressMv, [0.28, 0.33], [0, 1]);
   const bullet2Opacity = useTransform(progressMv, [0.33, 0.38], [0, 1]);
@@ -215,7 +215,7 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
   };
 
   // Shared paragraph style used in both cards
-  const sharedParaStyle: React.CSSProperties = {
+  const sharedParaStyle: CSSProperties = {
     fontFamily: "'Plus Jakarta Sans', sans-serif",
     fontSize: "14px",
     lineHeight: 1.70,
@@ -350,10 +350,10 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
             </div>
           </motion.div>
 
-          {/* ══════════════ RIGHT CARD (moved to left, wider, closer to navbar) ══════════════ */}
+          {/* ══════════════ RIGHT CARD ══════════════ */}
           <motion.div
             style={{ opacity: rightPanelOpacity, y: rightPanelY }}
-            className="absolute top-24 left-6 md:left-12 z-30 w-[340px] md:w-[460px]"
+            className="absolute top-24 left-6 md:left-12 z-30 w-[380px] md:w-[520px]"
           >
             <div
               className="gs relative overflow-hidden"
