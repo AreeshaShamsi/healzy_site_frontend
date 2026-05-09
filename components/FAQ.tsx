@@ -91,23 +91,10 @@ export default function FAQ() {
       className="relative bg-white rounded-2xl px-8 py-12 md:px-12 md:py-16 overflow-hidden"
     >
       {/* Decorative animated background blob */}
-      <motion.div
-        style={{ scale: bgScale }}
-        className="pointer-events-none absolute -top-20 -right-20 w-72 h-72 rounded-full bg-blue-50 opacity-60"
-      />
-      <motion.div
-        style={{ scale: bgScale, y: parallaxY }}
-        className="pointer-events-none absolute -bottom-16 -left-16 w-56 h-56 rounded-full bg-blue-100 opacity-40"
-      />
-
+     
+      
       {/* Floating decorative pill */}
-      <div
-        ref={pillRef}
-        className="pointer-events-none absolute top-10 right-10 hidden md:flex items-center gap-2 bg-blue-600 text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-lg opacity-80"
-      >
-        <span className="w-2 h-2 rounded-full bg-white inline-block" />
-        FAQ
-      </div>
+      
 
       <div className="relative max-w-5xl mx-auto flex flex-col md:flex-row gap-12 md:gap-16">
 

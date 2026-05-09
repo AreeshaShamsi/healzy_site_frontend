@@ -125,12 +125,11 @@ export default function WhyUsSection() {
           {/* ─── Heading — matches screenshot exactly ──────────────────── */}
           <div className="text-center mb-12 px-6 shrink-0">
             <h2
-              className="text-4xl md:text-5xl font-bold text-slate-900 mb-5"
-              style={{ fontFamily: "'Georgia', serif" }}
+              className="font-display text-4xl md:text-5xl font-bold text-slate-900 mb-5"
             >
               Why us?
             </h2>
-            <p className="text-slate-600 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+            <p className="font-body text-slate-600 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
              Many healthcare marketing agencies focus only on generating leads.
 We help you build a system that not only brings patient inquiries but also converts and retains them for long-term growth.
             </p>
@@ -162,12 +161,12 @@ We help you build a system that not only brings patient inquiries but also conve
                 </div>
 
                 {/* Title */}
-                <h3 className="text-base font-semibold text-slate-800">
+                <h3 className="card-title text-base text-slate-800">
                   {title}
                 </h3>
 
                 {/* Desc */}
-                <p className="text-slate-500 text-sm leading-relaxed">
+                <p className="font-body text-slate-500 text-sm leading-relaxed">
                   {desc}
                 </p>
               </div>

@@ -92,14 +92,7 @@ export default function LogoCarousel() {
         style={{ background: "#ffffff", paddingTop: "2rem", paddingBottom: "2rem" }}
       >
         {/* ── Subtle top rule ── */}
-        <div
-          className="absolute top-0 left-1/2 -translate-x-1/2"
-          style={{
-            width: "80%",
-            height: "1px",
-            background: "linear-gradient(90deg, transparent 0%, #e2e8f0 30%, #e2e8f0 70%, transparent 100%)",
-          }}
-        />
+       
 
         {/* ── Label row ── */}
         <div

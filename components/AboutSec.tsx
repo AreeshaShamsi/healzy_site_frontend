@@ -1,242 +1,72 @@
-"use client";
+// components/HeroSection.tsx
+// Next.js + Tailwind CSS
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
-export default function AboutSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const leftColRef = useRef<HTMLDivElement>(null);
-  const rightColRef = useRef<HTMLDivElement>(null);
-  const profileRef = useRef<HTMLDivElement>(null);
-  const blobRef = useRef<HTMLDivElement>(null);
-  const taglineRef = useRef<HTMLSpanElement>(null);
-  const headingRef = useRef<HTMLHeadingElement>(null);
-  const bodyRef = useRef<HTMLParagraphElement>(null);
-  const img1Ref = useRef<HTMLDivElement>(null);
-  const img2Ref = useRef<HTMLDivElement>(null);
-  const quoteRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%",
-          end: "bottom 20%",
-          toggleActions: "play none none reverse",
-        },
-      });
-
-      tl.fromTo(
-        img1Ref.current,
-        { y: 60, opacity: 0, scale: 0.95 },
-        { y: 0, opacity: 1, scale: 1, duration: 0.9, ease: "power3.out" },
-        0
-      )
-        .fromTo(
-          img2Ref.current,
-          { y: 80, opacity: 0, scale: 0.95 },
-          { y: 0, opacity: 1, scale: 1, duration: 0.9, ease: "power3.out" },
-          0.15
-        )
-        .fromTo(
-          blobRef.current,
-          { scale: 0, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.7, ease: "back.out(1.7)" },
-          0.1
-        )
-        .fromTo(
-          profileRef.current,
-          { x: 40, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.7, ease: "power3.out" },
-          0.2
-        )
-        .fromTo(
-          quoteRef.current,
-          { x: 40, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
-          0.3
-        )
-        .fromTo(
-          taglineRef.current,
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
-          0.35
-        )
-        .fromTo(
-          headingRef.current,
-          { y: 30, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" },
-          0.45
-        )
-        .fromTo(
-          bodyRef.current,
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" },
-          0.55
-        );
-
-      gsap.to(img1Ref.current, {
-        y: -30,
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1.5,
-        },
-      });
-
-      gsap.to(img2Ref.current, {
-        y: 30,
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1.5,
-        },
-      });
-
-      gsap.to(blobRef.current, {
-        y: -12,
-        x: 6,
-        duration: 3,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
+export default function HeroSection() {
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full min-h-screen bg-[#EFF6FF] overflow-hidden flex items-center px-4 sm:px-8 lg:px-20"
-    >
-      <div className="relative mx-auto max-w-7xl w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-20 py-20 lg:py-24">
+    <section className="relative min-h-screen w-full overflow-hidden flex items-center">
 
-        {/* ══════════════════════════════════════
-            LEFT — image collage
-        ══════════════════════════════════════ */}
-        <div
-          ref={leftColRef}
-          className="relative flex-shrink-0 w-full lg:w-[48%] h-[420px] sm:h-[520px] lg:h-[620px]"
-        >
-          {/* Main tall image */}
-          <div
-            ref={img1Ref}
-            className="absolute left-0 top-0 w-[55%] h-[88%] rounded-2xl overflow-hidden shadow-2xl"
-            style={{ opacity: 0 }}
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1600&q=80')",
+        }}
+      />
+
+      {/* Gradient overlay — light blue left, fades to image right */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-100/90 via-blue-200/75 to-slate-900/50" />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 py-24 w-full">
+        <div className="max-w-xl">
+
+          {/* Main Headline */}
+          <h1
+            className="font-black leading-tight tracking-tight text-slate-900 mb-6"
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
-              alt="Team collaboration"
-              className="w-full h-full object-cover"
-            />
-          </div>
+            <span className="block text-5xl md:text-6xl lg:text-7xl">
+              Acquire{" "}
+              <em className="text-blue-600 italic">Patients.</em>
+            </span>
+            <span className="block text-5xl md:text-6xl lg:text-7xl">
+              Build Trust.
+            </span>
+            <span className="block text-5xl md:text-6xl lg:text-7xl">
+              Retain Them.
+            </span>
+          </h1>
 
-          {/* Floating blue blob */}
-          <div
-            ref={blobRef}
-            className="absolute left-[44%] top-[10%] w-24 h-24 lg:w-28 lg:h-28 rounded-3xl bg-[#3B82F6] rotate-12 shadow-xl z-10"
-            style={{ opacity: 0 }}
-          />
+          {/* Blue accent line */}
+          <div className="w-12 h-0.5 bg-blue-600 mb-6 rounded-full" />
 
-          {/* Bottom-right image */}
-          <div
-            ref={img2Ref}
-            className="absolute right-0 bottom-0 w-[50%] h-[60%] rounded-2xl overflow-hidden shadow-2xl"
-            style={{ opacity: 0 }}
-          >
-            <img
-              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
-              alt="Office team working"
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Decorative ring */}
-          <div className="absolute -bottom-8 -left-8 w-36 h-36 rounded-full border-[10px] border-blue-200 opacity-60 pointer-events-none" />
-        </div>
-
-        {/* ══════════════════════════════════════
-            RIGHT — text content
-        ══════════════════════════════════════ */}
-        <div
-          ref={rightColRef}
-          className="flex-1 flex flex-col gap-5 lg:gap-6"
-        >
-          {/* Profile card */}
-          <div
-            ref={profileRef}
-            className="flex items-center gap-4"
-            style={{ opacity: 0 }}
-          >
-            <div className="w-14 h-14 rounded-full overflow-hidden ring-2 ring-blue-500 ring-offset-2 shadow-md flex-shrink-0">
-              <img
-                src="https://randomuser.me/api/portraits/men/32.jpg"
-                alt="Lucas Bennett"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div>
-              <p className="font-semibold text-gray-900 text-sm leading-tight">
-                Lucas Bennett
-              </p>
-              <p className="text-xs text-gray-500">Founder & CEO</p>
-            </div>
-          </div>
-
-          {/* Quote icon */}
-          <div
-            ref={quoteRef}
-            className="text-blue-500 text-6xl font-serif leading-none select-none"
-            style={{ opacity: 0 }}
-          >
-            &#8220;
-          </div>
-
-          {/* Divider */}
-          <div className="w-16 h-0.5 bg-blue-500 rounded-full" />
-
-          {/* About Us pill */}
-          <span
-            ref={taglineRef}
-            className="inline-flex items-center gap-2 self-start bg-blue-600 text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-md tracking-wide"
-            style={{ opacity: 0 }}
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-white/70 inline-block" />
-            About Us
-          </span>
-
-          {/* Heading */}
-          <h2
-            ref={headingRef}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
-            style={{ opacity: 0 }}
-          >
-            About Us &ndash; Building Better
-            <br />
-            Digital Experiences
-          </h2>
-
-          {/* Body */}
-          <p
-            ref={bodyRef}
-            className="text-gray-500 text-sm sm:text-base leading-relaxed max-w-lg"
-            style={{ opacity: 0 }}
-          >
-            Flytech is a modern IT solution provider focused on helping
-            businesses grow in the digital era. With smart technology,
-            innovative ideas, and reliable services, we simplify challenges and
-            create future-ready solutions that drive success.
+          {/* Subtext */}
+          <p className="text-slate-700 text-base md:text-lg leading-relaxed font-light mb-10 max-w-md">
+            We help healthcare businesses acquire new patients, convert inquiries
+            into appointments, and retain them for long-term growth.
           </p>
+
+          {/* CTAs */}
+          <div className="flex flex-wrap items-center gap-4">
+            <button className="px-8 py-4 rounded-full bg-slate-900 text-white font-semibold text-sm tracking-wide hover:bg-slate-700 transition-all duration-300 hover:scale-105 shadow-lg">
+              Book an Appointment
+            </button>
+            <button className="px-8 py-4 rounded-full border border-slate-900/30 text-slate-900 text-sm font-medium hover:border-slate-900/60 transition-all duration-300">
+              Learn More →
+            </button>
+          </div>
+
+          {/* Trust badges */}
+          <div className="flex flex-wrap gap-6 mt-12 pt-8 border-t border-slate-900/10">
+            {["HIPAA Compliant", "340+ Health Systems", "2.4M+ Patients Reached"].map((b) => (
+              <div key={b} className="flex items-center gap-2">
+                <span className="text-blue-600 text-lg">✦</span>
+                <span className="text-slate-700 text-xs font-medium tracking-wider uppercase">{b}</span>
+              </div>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>

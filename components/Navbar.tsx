@@ -1,11 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isHeroVisible, setIsHeroVisible] = useState(true);
-  const [active, setActive] = useState("Home");
+  const pathname = usePathname();
 
   useEffect(() => {
     const heroSection = document.getElementById("hero-cinematic");
@@ -25,7 +27,13 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  const navItems = ["Home", "About", "Case Studies", "Blogs", "Contact"];
+  const navItems = [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Case Studies", href: "/case-studies" },
+    { label: "Blogs", href: "/blogs" },
+    { label: "Contact", href: "/contact" },
+  ];
 
   return (
     <>
@@ -239,25 +247,24 @@ export default function Navbar() {
             : "opacity-0 -translate-y-6 pointer-events-none"
         }`}
       >
-        <div className="nav-pill bg-white/70 backdrop-blur-md font-brand-serif">
+        <div className="nav-pill navbar-text bg-white/70 backdrop-blur-md">
           <div className="nav-inner">
 
             {/* Logo */}
-            <a href="#" className="logo">
+            <Link href="/" className="logo">
               <img src="/logo.png" alt="Logo" />
-            </a>
+            </Link>
 
             {/* Desktop nav */}
             <ul className="nav-links">
               {navItems.map((item) => (
-                <li key={item}>
-                  <a
-                    href="#"
-                    className={active === item ? "active" : ""}
-                    onClick={(e) => { e.preventDefault(); setActive(item); }}
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={pathname === item.href ? "active" : ""}
                   >
-                    {item}
-                  </a>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -286,14 +293,14 @@ export default function Navbar() {
           <div className={`mobile-menu${menuOpen ? " open" : ""}`}>
             <div className="mobile-menu-inner">
               {navItems.map((item) => (
-                <a
-                  key={item}
-                  href="#"
-                  className={active === item ? "active" : ""}
-                  onClick={(e) => { e.preventDefault(); setActive(item); setMenuOpen(false); }}
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={pathname === item.href ? "active" : ""}
+                  onClick={() => setMenuOpen(false)}
                 >
-                  {item}
-                </a>
+                  {item.label}
+                </Link>
               ))}
             </div>
           </div>
