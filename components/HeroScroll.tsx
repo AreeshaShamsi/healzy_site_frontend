@@ -221,7 +221,7 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
       op: pillar1Opacity,
       number: "01",
       title: "Relevance",
-     
+      desc: "",
       bullets: [
         "Search visibility for targeted conditions",
         "Local SEO for clinics & hospitals",
@@ -232,7 +232,7 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
       op: pillar2Opacity,
       number: "02",
       title: "Trust",
-     
+      desc: "",
       bullets: [
         "Online reputation management",
         "Doctor profile optimisation",
@@ -243,7 +243,7 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
       op: pillar3Opacity,
       number: "03",
       title: "Retention",
-     
+      desc: "",
       bullets: [
         "Automated follow-up systems",
         "Appointment conversion optimisation",

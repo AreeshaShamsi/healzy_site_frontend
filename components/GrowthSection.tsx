@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -18,35 +18,35 @@ const CHECKS = [
 // Variants — once: false makes every element animate IN on scroll-down
 // and animate OUT (back to hidden) on scroll-up
 // ─────────────────────────────────────────────────────────────────────────────
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 42 },
   visible: (i = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 },
+    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as const, delay: i * 0.1 },
   }),
 };
 
-const fadeLeft = {
+const fadeLeft: Variants = {
   hidden: { opacity: 0, x: -38 },
   visible: (i = 0) => ({
     opacity: 1,
     x: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 },
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const, delay: i * 0.1 },
   }),
 };
 
-const scaleIn = {
+const scaleIn: Variants = {
   hidden: { opacity: 0, scale: 0.88, y: 26 },
   visible: (i = 0) => ({
     opacity: 1,
     scale: 1,
     y: 0,
-    transition: { duration: 0.72, ease: [0.22, 1, 0.36, 1], delay: i * 0.13 },
+    transition: { duration: 0.72, ease: [0.22, 1, 0.36, 1] as const, delay: i * 0.13 },
   }),
 };
 
-const iconPop = {
+const iconPop: Variants = {
   hidden: { scale: 0, opacity: 0 },
   visible: (i = 0) => ({
     scale: 1,
@@ -54,7 +54,7 @@ const iconPop = {
     transition: {
       delay: 0.08 + i * 0.1,
       duration: 0.42,
-      type: "spring",
+      type: "spring" as const,
       stiffness: 320,
       damping: 18,
     },
@@ -62,9 +62,9 @@ const iconPop = {
 };
 
 export default function GrowthSection() {
-  const sectionRef = useRef(null);
-  const statRef    = useRef(null);
-  const countRef   = useRef(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const statRef = useRef<HTMLDivElement | null>(null);
+  const countRef = useRef<HTMLParagraphElement | null>(null);
 
   // Parallax on the tall left image
   const { scrollYProgress } = useScroll({

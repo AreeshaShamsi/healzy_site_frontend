@@ -215,7 +215,7 @@ export default function StepsSection() {
             <div
               ref={lineRef}
               className="absolute inset-0 bg-gradient-to-b from-blue-400 via-purple-400 to-amber-400 origin-top"
-              style={{ scaleY: 0 }}
+              style={{ transform: "scaleY(0)", transformOrigin: "top center" }}
             />
           </div>
 
