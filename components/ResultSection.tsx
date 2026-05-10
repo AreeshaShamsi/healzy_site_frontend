@@ -386,7 +386,6 @@ export default function ResultsSection() {
           <p
             ref={subtitleRef}
             style={{
-              fontSize: "18px",
               fontWeight: 300,
               lineHeight: 1.65,
               color: "rgba(4,44,83,0.45)",

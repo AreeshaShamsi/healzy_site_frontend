@@ -244,7 +244,7 @@ export default function StackedScrollCards() {
       let opacity    = 1;
       let blur       = 0;
       let brightness = 1;
-      let z          = N;
+      let z: number = N;
 
       if (relPos <= 0) {
         // Buried / active. d=0 → perfect active state.
