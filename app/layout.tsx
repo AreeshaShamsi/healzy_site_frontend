@@ -1,4 +1,5 @@
 import "./globals.css";
+import FloatingAppointmentCTA from "../components/FloatingAppointmentCTA";
 
 export default function RootLayout({
   children,
@@ -7,7 +8,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        {children}
+        <FloatingAppointmentCTA />
+      </body>
     </html>
   );
 }

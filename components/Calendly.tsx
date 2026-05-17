@@ -82,17 +82,14 @@ export default function CalendlySection() {
                   <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">Booking</p>
                   <p className="mt-1 text-sm font-semibold text-slate-900">Choose Your Preferred Time</p>
                 </div>
-                <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold text-emerald-700">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  Online
-                </div>
+                
               </div>
               <div className="mt-3 h-px w-full bg-[linear-gradient(90deg,transparent_0%,rgba(37,99,235,0.28)_50%,transparent_100%)]" />
             </div>
 
             <div className="h-full bg-white/95">
               <InlineWidget
-                url="https://calendly.com/areeshashamsi11/30min"
+                url="https://calendly.com/business-healzy/30min"
                 styles={{ height: "620px" }}
                 pageSettings={{
                   hideEventTypeDetails: true,

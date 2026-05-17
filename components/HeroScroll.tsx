@@ -190,29 +190,29 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
   const BULLETS = [
     {
       op: bullet1Opacity,
-      icon: <FiSearch className="mt-[3px] h-[18px] w-[18px] shrink-0 text-[#2563eb]" />,
+      icon: <FiSearch className="mt-[2px] h-[16px] w-[16px] shrink-0 text-[#2563eb] md:mt-[3px] md:h-[18px] md:w-[18px]" />,
       title: "Search First",
-      desc: "Patients research online before choosing any healthcare provider.",
+    
     },
     {
       op: bullet2Opacity,
-      icon: <HiOutlineScale className="mt-[3px] h-[18px] w-[18px] shrink-0 text-[#2563eb]" />,
+      icon: <HiOutlineScale className="mt-[2px] h-[16px] w-[16px] shrink-0 text-[#2563eb] md:mt-[3px] md:h-[18px] md:w-[18px]" />,
       title: "Compare Options",
-      desc: "They compare multiple clinics before making their final decision.",
+     
     },
     {
       op: bullet3Opacity,
-      icon: <FiZap className="mt-[3px] h-[18px] w-[18px] shrink-0 text-[#2563eb]" />,
+      icon: <FiZap className="mt-[2px] h-[16px] w-[16px] shrink-0 text-[#2563eb] md:mt-[3px] md:h-[18px] md:w-[18px]" />,
       title: "Expect Quick Response",
-      desc: "Slow follow-ups lose patients to faster-responding competitors.",
+     
     },
     {
       op: bullet4Opacity,
       icon: (
-        <RiShakeHandsLine className="mt-[3px] h-[18px] w-[18px] shrink-0 text-[#2563eb]" />
+        <RiShakeHandsLine className="mt-[2px] h-[16px] w-[16px] shrink-0 text-[#2563eb] md:mt-[3px] md:h-[18px] md:w-[18px]" />
       ),
       title: "Decide on Trust",
-      desc: "Final decisions hinge on credibility and trustworthiness.",
+     
     },
   ];
 
@@ -225,7 +225,7 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
       bullets: [
         "Search visibility for targeted conditions",
         "Local SEO for clinics & hospitals",
-        "Targeted digital campaigns",
+        
       ],
     },
     {
@@ -236,7 +236,7 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
       bullets: [
         "Online reputation management",
         "Doctor profile optimisation",
-        "Review generation systems",
+       
       ],
     },
     {
@@ -247,7 +247,7 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
       bullets: [
         "Automated follow-up systems",
         "Appointment conversion optimisation",
-        "Long-term patient relationships",
+        
       ],
     },
   ];
@@ -266,35 +266,37 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
         {/* Card 1 — Left */}
         <motion.div
           style={{ opacity: leftPanelOpacity }}
-          className="absolute left-4 right-4 top-28 z-30 w-auto max-w-[520px] sm:top-32 md:left-12 md:right-auto md:top-[53%] md:w-[38%] md:max-w-[520px] md:-translate-y-1/2 lg:max-w-[520px]"
+          className="absolute left-4 right-4 top-20 z-30 w-auto max-w-[520px] sm:top-24 md:left-12 md:right-auto md:top-[53%] md:w-[38%] md:max-w-[520px] md:-translate-y-1/2 lg:max-w-[520px]"
         >
           <motion.div
             style={{ y: leftPanelY }}
-            className="relative flex w-full max-w-[520px] flex-col space-y-4 px-1 py-1 sm:space-y-5 md:min-h-[420px] md:overflow-hidden md:rounded-[26px] md:border-[1.5px] md:border-[rgba(255,255,255,0.90)] md:bg-[linear-gradient(160deg,rgba(255,255,255,0.82)_0%,rgba(200,225,255,0.56)_28%,rgba(175,210,255,0.40)_62%,rgba(240,248,255,0.74)_100%)] md:px-6 md:py-10 md:[backdrop-filter:blur(64px)_saturate(260%)_brightness(1.18)_hue-rotate(3deg)] md:[box-shadow:0_1px_0_rgba(255,255,255,1)_inset,1px_0_0_rgba(255,255,255,0.84)_inset,-1px_-1px_0_rgba(145,195,255,0.34)_inset,0_0_52px_rgba(135,195,255,0.24)_inset,0_40px_100px_rgba(38,88,220,0.30),0_16px_40px_rgba(38,88,220,0.22),0_5px_14px_rgba(0,0,0,0.10),0_0_0_1px_rgba(85,150,255,0.26)] md:before:pointer-events-none md:before:absolute md:before:inset-x-0 md:before:top-0 md:before:z-[3] md:before:h-[2px] md:before:rounded-t-[26px] md:before:content-[''] md:before:bg-[linear-gradient(90deg,rgba(140,195,255,0)_0%,rgba(255,255,255,1)_32%,rgba(195,228,255,0.88)_62%,rgba(140,195,255,0.22)_100%)] md:after:pointer-events-none md:after:absolute md:after:-right-[72px] md:after:-top-[72px] md:after:z-[1] md:after:h-[240px] md:after:w-[240px] md:after:rounded-full md:after:bg-[radial-gradient(circle,rgba(95,158,255,0.20)_0%,rgba(115,175,255,0.07)_44%,transparent_68%)] md:after:content-['']"
+            className="relative flex w-full max-w-[520px] flex-col items-start justify-start space-y-3 px-1 py-1 sm:space-y-4 md:min-h-[420px] md:space-y-5 md:overflow-hidden md:rounded-[26px] md:border-[1.5px] md:border-[rgba(255,255,255,0.90)] md:bg-[linear-gradient(160deg,rgba(255,255,255,0.82)_0%,rgba(200,225,255,0.56)_28%,rgba(175,210,255,0.40)_62%,rgba(240,248,255,0.74)_100%)] md:px-6 md:py-10 md:[backdrop-filter:blur(64px)_saturate(260%)_brightness(1.18)_hue-rotate(3deg)] md:[box-shadow:0_1px_0_rgba(255,255,255,1)_inset,1px_0_0_rgba(255,255,255,0.84)_inset,-1px_-1px_0_rgba(145,195,255,0.34)_inset,0_0_52px_rgba(135,195,255,0.24)_inset,0_40px_100px_rgba(38,88,220,0.30),0_16px_40px_rgba(38,88,220,0.22),0_5px_14px_rgba(0,0,0,0.10),0_0_0_1px_rgba(85,150,255,0.26)] md:before:pointer-events-none md:before:absolute md:before:inset-x-0 md:before:top-0 md:before:z-[3] md:before:h-[2px] md:before:rounded-t-[26px] md:before:content-[''] md:before:bg-[linear-gradient(90deg,rgba(140,195,255,0)_0%,rgba(255,255,255,1)_32%,rgba(195,228,255,0.88)_62%,rgba(140,195,255,0.22)_100%)] md:after:pointer-events-none md:after:absolute md:after:-right-[72px] md:after:-top-[72px] md:after:z-[1] md:after:h-[240px] md:after:w-[240px] md:after:rounded-full md:after:bg-[radial-gradient(circle,rgba(95,158,255,0.20)_0%,rgba(115,175,255,0.07)_44%,transparent_68%)] md:after:content-['']"
           >
             <div className="pointer-events-none absolute -bottom-[55px] -left-[55px] z-[1] hidden h-[195px] w-[195px] rounded-full bg-[radial-gradient(circle,rgba(165,208,255,0.20)_0%,transparent_64%)] md:block" />
 
-            <h1 className="heading relative z-[2] my-4">
-              Acquire
-              <em className="ml-2">Patients.</em>
-              <br />
-              Build Trust.
-              <br />
-              Retain Them.
-            </h1>
+    <h1 className="heading relative z-[2] mt-3 mb-2 max-w-[270px] leading-[1] sm:mt-4 sm:max-w-[300px] md:-mt-0 md:mb-4 md:max-w-none md:leading-[1] lg:text-[0.92em]">
+      Acquire
+      <em className="ml-2">Patients.</em>
+      <br />
+      Build Trust.
+      <br />
+      <span className="whitespace-nowrap">Retain Them.</span>
+    </h1>
 
             <div className="relative z-[2] my-[10px] h-px bg-[linear-gradient(90deg,transparent_0%,rgba(80,135,255,0.30)_18%,rgba(255,255,255,0.68)_50%,rgba(80,135,255,0.24)_82%,transparent_100%)] md:my-[14px]" />
 
-            <p className="cinematic-body relative z-[2] mt-6 mb-4 max-w-[36ch] text-[rgba(0,0,0,0.52)] sm:mt-8 sm:mb-20 md:mt-0 md:mb-6">
-              We help healthcare businesses acquire new patients, convert inquiries into appointments, and retain them for long-term growth.
-            </p>
+            <div className="relative z-[2] top-4 translate-y-16 space-y-4 sm:top-6 sm:translate-y-24 md:top-0 md:translate-y-0 md:space-y-0">
+      <p className="cinematic-body mb-4 max-w-[36ch] font-medium text-[rgba(0,0,0,0.64)] md:mb-6 md:font-normal md:text-[rgba(0,0,0,0.52)]">
+        We help healthcare businesses acquire new patients, convert inquiries into appointments, and retain them for long-term growth.
+      </p>
 
-            <a
-              href="#services"
-              className="button-text relative z-[2] mt-2 inline-flex self-start rounded-[100px] bg-[#0c1a2e] px-[26px] py-3 text-white no-underline transition-[background,transform] duration-200 hover:bg-[#1b3860] md:mt-0"
-            >
-              Book an Appointment
-            </a>
+              <a
+                href="#services"
+                className="button-text mt-2 inline-flex self-start rounded-[100px] bg-[#0c1a2e] px-[26px] py-3 text-white no-underline transition-[background,transform] duration-200 hover:bg-[#1b3860] md:mt-0"
+              >
+                Book an Appointment
+              </a>
+            </div>
           </motion.div>
         </motion.div>
 
@@ -303,8 +305,8 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
           style={{ opacity: rightPanelOpacity, y: rightPanelY }}
           className="absolute left-6 top-24 z-30 w-[380px] md:left-12 md:w-[520px]"
         >
-          <div className="relative overflow-hidden rounded-[26px] border-[1.5px] border-[rgba(255,255,255,0.88)] bg-[linear-gradient(160deg,rgba(255,255,255,0.80)_0%,rgba(210,228,255,0.58)_38%,rgba(190,215,255,0.42)_68%,rgba(255,255,255,0.72)_100%)] px-7 pb-[30px] pt-7 [backdrop-filter:blur(52px)_saturate(230%)_brightness(1.12)_hue-rotate(2deg)] [box-shadow:0_1px_0_rgba(255,255,255,1)_inset,1px_0_0_rgba(255,255,255,0.76)_inset,-1px_-1px_0_rgba(175,210,255,0.22)_inset,0_0_42px_rgba(138,190,255,0.18)_inset,0_34px_84px_rgba(55,105,220,0.22),0_12px_34px_rgba(55,105,220,0.16),0_4px_10px_rgba(0,0,0,0.07),0_0_0_1px_rgba(115,168,255,0.18)] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-[3] before:h-[2px] before:rounded-t-[26px] before:content-[''] before:bg-[linear-gradient(90deg,rgba(140,195,255,0)_0%,rgba(255,255,255,1)_32%,rgba(195,228,255,0.88)_62%,rgba(140,195,255,0.22)_100%)] after:pointer-events-none after:absolute after:-right-[72px] after:-top-[72px] after:z-[1] after:h-[240px] after:w-[240px] after:rounded-full after:bg-[radial-gradient(circle,rgba(95,158,255,0.20)_0%,rgba(115,175,255,0.07)_44%,transparent_68%)] after:content-['']">
-            <div className="pointer-events-none absolute -bottom-[45px] -left-[45px] z-[1] h-[165px] w-[165px] rounded-full bg-[radial-gradient(circle,rgba(165,208,255,0.16)_0%,transparent_64%)]" />
+      <div className="relative px-3 pb-1 pt-2 sm:px-4 sm:pt-3 md:overflow-hidden md:rounded-[26px] md:border-[1.5px] md:border-[rgba(255,255,255,0.88)] md:bg-[linear-gradient(160deg,rgba(255,255,255,0.80)_0%,rgba(210,228,255,0.58)_38%,rgba(190,215,255,0.42)_68%,rgba(255,255,255,0.72)_100%)] md:px-7 md:pb-[30px] md:pt-7 md:[backdrop-filter:blur(52px)_saturate(230%)_brightness(1.12)_hue-rotate(2deg)] md:[box-shadow:0_1px_0_rgba(255,255,255,1)_inset,1px_0_0_rgba(255,255,255,0.76)_inset,-1px_-1px_0_rgba(175,210,255,0.22)_inset,0_0_42px_rgba(138,190,255,0.18)_inset,0_34px_84px_rgba(55,105,220,0.22),0_12px_34px_rgba(55,105,220,0.16),0_4px_10px_rgba(0,0,0,0.07),0_0_0_1px_rgba(115,168,255,0.18)] md:before:pointer-events-none md:before:absolute md:before:inset-x-0 md:before:top-0 md:before:z-[3] md:before:h-[2px] md:before:rounded-t-[26px] md:before:content-[''] md:before:bg-[linear-gradient(90deg,rgba(140,195,255,0)_0%,rgba(255,255,255,1)_32%,rgba(195,228,255,0.88)_62%,rgba(140,195,255,0.22)_100%)] md:after:pointer-events-none md:after:absolute md:after:-right-[72px] md:after:-top-[72px] md:after:z-[1] md:after:h-[240px] md:after:w-[240px] md:after:rounded-full md:after:bg-[radial-gradient(circle,rgba(95,158,255,0.20)_0%,rgba(115,175,255,0.07)_44%,transparent_68%)] md:after:content-['']">
+        <div className="pointer-events-none absolute -bottom-[45px] -left-[45px] z-[1] hidden h-[165px] w-[165px] rounded-full bg-[radial-gradient(circle,rgba(165,208,255,0.16)_0%,transparent_64%)] md:block" />
 
             <h2 className="heading relative z-[2] mb-[10px]">
               Why Many Healthcare
@@ -312,21 +314,21 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
               Businesses Struggle
             </h2>
 
-            <p className="cinematic-body relative z-[2] mb-[14px] text-[rgba(0,0,0,0.52)]">
+            <p className="cinematic-body relative z-[2] mb-[14px] text-[rgba(0,0,0,0.58)] sm:max-w-[34ch] md:max-w-none md:text-[rgba(0,0,0,0.52)]">
               What worked earlier does not work today. Today&apos;s patients are more informed, selective, and expect more.
             </p>
 
-            <div className="relative z-[2] flex flex-col gap-[5px]">
+            <div className="relative z-[2] flex flex-col items-start gap-1.5 md:gap-[5px]">
               {BULLETS.map(({ op, icon, title, desc }) => (
                 <motion.div
                   key={title}
                   style={{ opacity: op }}
-                  className="flex items-start gap-[11px] rounded-[13px] border border-[rgba(255,255,255,0.74)] bg-[rgba(255,255,255,0.50)] px-[11px] py-2.5 [backdrop-filter:blur(12px)] [box-shadow:0_1px_0_rgba(255,255,255,0.92)_inset,0_2px_8px_rgba(75,115,200,0.07)]"
+                  className="w-full max-w-[236px] h-[40px] min-h-[40px] flex items-center gap-1.5 rounded-[9px] border border-[rgba(255,255,255,0.58)] bg-[rgba(255,255,255,0.32)] px-3 py-2 [backdrop-filter:blur(4px)] [box-shadow:0_1px_4px_rgba(75,115,200,0.05)] md:max-w-none md:h-auto md:min-h-0 md:items-start md:gap-[11px] md:rounded-[13px] md:border-[rgba(255,255,255,0.74)] md:bg-[rgba(255,255,255,0.50)] md:px-[11px] md:py-2.5 md:[backdrop-filter:blur(12px)] md:[box-shadow:0_1px_0_rgba(255,255,255,0.92)_inset,0_2px_8px_rgba(75,115,200,0.07)]"
                 >
                   {icon}
                   <div>
-                    <p className="card-title mb-[2px] text-[14px] text-[#0a0a0a]">{title}</p>
-                    <p className="font-body m-0 text-[12.5px] leading-[1.52] text-[rgba(0,0,0,0.50)]">{desc}</p>
+                    <p className="card-title mb-0 whitespace-nowrap text-[13px] leading-tight text-[#0a0a0a] md:mb-[2px] md:text-[14px]">{title}</p>
+                    <p className="font-body m-0 hidden text-[12.5px] leading-[1.52] text-[rgba(0,0,0,0.50)] md:block">{desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -339,8 +341,7 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
           style={{ opacity: thirdPanelOpacity, y: thirdPanelY }}
           className="absolute left-6 top-[50%] z-30 w-[380px] -translate-y-1/2 md:left-12 md:w-[560px]"
         >
-          <div className="relative overflow-hidden rounded-[26px] border-[1.5px] border-[rgba(255,255,255,0.88)] bg-[linear-gradient(160deg,rgba(255,255,255,0.80)_0%,rgba(210,228,255,0.58)_38%,rgba(190,215,255,0.42)_68%,rgba(255,255,255,0.72)_100%)] px-7 pb-[30px] pt-7 [backdrop-filter:blur(52px)_saturate(230%)_brightness(1.12)_hue-rotate(2deg)] [box-shadow:0_1px_0_rgba(255,255,255,1)_inset,1px_0_0_rgba(255,255,255,0.76)_inset,-1px_-1px_0_rgba(175,210,255,0.22)_inset,0_0_42px_rgba(138,190,255,0.18)_inset,0_34px_84px_rgba(55,105,220,0.22),0_12px_34px_rgba(55,105,220,0.16),0_4px_10px_rgba(0,0,0,0.07),0_0_0_1px_rgba(115,168,255,0.18)] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-[3] before:h-[2px] before:rounded-t-[26px] before:content-[''] before:bg-[linear-gradient(90deg,rgba(140,195,255,0)_0%,rgba(255,255,255,1)_32%,rgba(195,228,255,0.88)_62%,rgba(140,195,255,0.22)_100%)] after:pointer-events-none after:absolute after:-right-[72px] after:-top-[72px] after:z-[1] after:h-[240px] after:w-[240px] after:rounded-full after:bg-[radial-gradient(circle,rgba(95,158,255,0.20)_0%,rgba(115,175,255,0.07)_44%,transparent_68%)] after:content-['']">
-            <div className="pointer-events-none absolute -bottom-[45px] -left-[45px] z-[1] h-[165px] w-[165px] rounded-full bg-[radial-gradient(circle,rgba(165,208,255,0.16)_0%,transparent_64%)]" />
+          <div className="relative px-7 pb-[30px] pt-7">
 
             <h2 className="heading relative z-[2] mb-[6px]">
               Our Approach
@@ -361,7 +362,7 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
                     <span className="ui-label text-[13px] text-[#2563eb]">
                       {number}
                     </span>
-                    <p className="card-title m-0 text-[14px] text-[#0a0a0a]">{title}</p>
+                    <p className="card-title m-0 text-[15px] text-[#0a0a0a] md:text-[16px]">{title}</p>
                   </div>
                   <p className="font-body mb-[7px] text-[12px] leading-[1.55] text-[rgba(0,0,0,0.50)]">
                     {desc}
