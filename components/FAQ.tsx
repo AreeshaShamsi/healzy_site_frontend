@@ -127,7 +127,7 @@ export default function FAQ() {
                   itemRefs.current[i] = el;
                 }}
                 className={`bg-white rounded-xl border transition-colors duration-200 ${
-                  isOpen ? "border-blue-300 shadow-sm" : "border-blue-100"
+                  isOpen ? "border-neutral-300 shadow-sm" : "border-neutral-200"
                 }`}
                 style={{ opacity: 0 }} // GSAP controls initial opacity
               >
@@ -135,7 +135,7 @@ export default function FAQ() {
                   onClick={() => toggle(i)}
                   className="w-full flex items-center justify-between gap-4 px-5 py-[18px] text-left group"
                 >
-                  <span className="text-[14.5px] font-medium text-blue-950 transition-colors duration-200 group-hover:text-blue-700">
+                  <span className="text-[14.5px] font-medium text-neutral-900 transition-colors duration-200 group-hover:text-neutral-700">
                     {faq.question}
                   </span>
 
@@ -145,8 +145,8 @@ export default function FAQ() {
                     transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                     className={`flex-shrink-0 w-7 h-7 rounded-full border flex items-center justify-center ${
                       isOpen
-                        ? "bg-blue-600 border-blue-600"
-                        : "bg-blue-50 border-blue-200"
+                        ? "bg-neutral-900 border-neutral-900"
+                        : "bg-neutral-50 border-neutral-300"
                     }`}
                     style={{ transition: "background 0.25s, border-color 0.25s" }}
                   >
@@ -159,7 +159,7 @@ export default function FAQ() {
                     >
                       <path
                         d="M6 1v10M1 6h10"
-                        stroke={isOpen ? "#fff" : "#3B82F6"}
+                        stroke={isOpen ? "#fff" : "#111827"}
                         strokeWidth="2"
                         strokeLinecap="round"
                       />
@@ -186,7 +186,7 @@ export default function FAQ() {
                         animate={{ y: 0 }}
                         exit={{ y: -6 }}
                         transition={{ duration: 0.3, ease: "easeOut" }}
-                        className="px-5 pb-5 pt-0 text-sm text-blue-500 leading-relaxed border-t border-blue-50"
+                        className="px-5 pb-5 pt-0 text-sm text-neutral-900 leading-relaxed border-t border-neutral-100"
                       >
                         <span className="block pt-3">{faq.answer}</span>
                       </motion.p>

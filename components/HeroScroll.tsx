@@ -192,19 +192,19 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
       op: bullet1Opacity,
       icon: <FiSearch className="mt-[2px] h-[16px] w-[16px] shrink-0 text-[#2563eb] md:mt-[3px] md:h-[18px] md:w-[18px]" />,
       title: "Search First",
-    
+      desc: "Patients research online before choosing any healthcare provider.",
     },
     {
       op: bullet2Opacity,
       icon: <HiOutlineScale className="mt-[2px] h-[16px] w-[16px] shrink-0 text-[#2563eb] md:mt-[3px] md:h-[18px] md:w-[18px]" />,
       title: "Compare Options",
-     
+      desc: "They compare multiple clinics before making their final decision.",
     },
     {
       op: bullet3Opacity,
       icon: <FiZap className="mt-[2px] h-[16px] w-[16px] shrink-0 text-[#2563eb] md:mt-[3px] md:h-[18px] md:w-[18px]" />,
       title: "Expect Quick Response",
-     
+      desc: "Slow follow-ups lose patients to faster-responding competitors.",
     },
     {
       op: bullet4Opacity,
@@ -212,7 +212,7 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
         <RiShakeHandsLine className="mt-[2px] h-[16px] w-[16px] shrink-0 text-[#2563eb] md:mt-[3px] md:h-[18px] md:w-[18px]" />
       ),
       title: "Decide on Trust",
-     
+      desc: "Final decisions hinge on credibility and trustworthiness.",
     },
   ];
 

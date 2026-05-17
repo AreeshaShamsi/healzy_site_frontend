@@ -403,10 +403,9 @@ export default function ResultsSection() {
         {/* ── Stat cards grid ─────────────────────────────────────────────────── */}
         <div
           ref={cardsWrapRef}
+          className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-[14px]"
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "14px",
+            alignItems: "stretch",
           }}
         >
           {STATS.map((stat, i) => {

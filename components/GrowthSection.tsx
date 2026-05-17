@@ -184,7 +184,7 @@ export default function GrowthSection() {
             viewport={{ once: false, amount: 0.4 }}
           >
             <button className="px-7 py-3.5 rounded-full bg-slate-900 text-white text-sm font-semibold hover:bg-slate-700 transition-colors duration-200">
-              Book a Free Audit
+              Book an Appointment
             </button>
             <button className="text-sm text-blue-600 font-medium hover:underline transition">
               See case studies →
