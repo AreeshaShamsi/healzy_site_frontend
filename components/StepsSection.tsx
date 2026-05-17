@@ -72,9 +72,7 @@ function SplitTitle({ title, accent }: { title: string; accent: string }) {
   return (
     <>
       {title.slice(0, idx)}
-      <em className="not-italic" style={{ color: "#185FA5" }}>
-        {accent}
-      </em>
+      <em>{accent}</em>
       {title.slice(idx + accent.length)}
     </>
   );
@@ -325,22 +323,12 @@ export default function StackedScrollCards() {
           <span className="block h-px w-8" style={{ background: "rgba(24,95,165,0.25)" }} />
         </p>
 
-        {/* Big heading — same Playfair as cards so it feels like one family */}
+        {/* Big heading */}
         <h2
-          className="text-center leading-[1.04]"
-          style={{
-            fontFamily: "var(--font-playfair,'Playfair Display',Georgia,serif)",
-            fontSize: "clamp(48px, 8vw, 104px)",
-            fontWeight: 400,
-            letterSpacing: "-0.035em",
-            color: "#042C53",
-            maxWidth: "760px",
-          }}
+          className="heading mx-auto text-center"
         >
-          How We{" "}
-          <em className="not-italic" style={{ color: "#185FA5" }}>Work</em>
+          How We <em>Work</em>
         </h2>
-
         {/* Subtitle */}
         <p
           className="mt-6 max-w-md text-center text-lg font-light leading-relaxed"
@@ -402,14 +390,8 @@ export default function StackedScrollCards() {
                 </p>
 
                 <h3
-                  className="mb-6 leading-[1.07] tracking-tight text-[#042C53]"
-                  style={{
-                    fontFamily: "var(--font-playfair,'Playfair Display',Georgia,serif)",
-                    fontSize: "clamp(44px,7.5vw,88px)",
-                    fontWeight: 400,
-                    letterSpacing: "-0.03em",
-                    maxWidth: "820px",
-                  }}
+                  className="heading mb-6 text-[#042C53]"
+                  style={{ maxWidth: "820px" }}
                 >
                   <SplitTitle title={card.title} accent={card.accent} />
                 </h3>
@@ -471,3 +453,9 @@ export default function StackedScrollCards() {
     </section>
   );
 }
+
+
+
+
+
+

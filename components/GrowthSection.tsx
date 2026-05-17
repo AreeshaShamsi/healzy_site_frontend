@@ -114,16 +114,15 @@ export default function GrowthSection() {
         <div>
           {/* Headline — fades up on scroll-down, fades out on scroll-up */}
           <motion.h2
-            className="text-4xl md:text-5xl font-black text-slate-900 leading-[1.12] mb-5"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
-          >
-            Consistent growth,{" "}
-            <em className="italic text-blue-600">boundless potential</em>
-          </motion.h2>
+  className="heading"
+  variants={fadeUp}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: false, amount: 0.3 }}
+>
+  Consistent growth,{" "}
+  <em>boundless potential</em>
+</motion.h2>
 
           {/* Subtext */}
           <motion.p

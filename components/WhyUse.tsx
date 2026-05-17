@@ -23,7 +23,7 @@ const CARDS = [
   {
     icon: FaUserMd,
     title: "Beyond a Digital Marketing Agency for Doctors",
-    desc: "As a digital marketing agency for doctors, we do more than campaigns — we build systems that support long-term patient acquisition."
+    desc: "As a digital marketing agency for doctors, we do more than campaigns — we build systems that support long-term patient acquisition.",
   },
   {
     icon: FaHospitalAlt,
@@ -47,13 +47,12 @@ const CARDS = [
   },
 ];
 
-export default function WhyUsSection() {
+export default function WhyUse() {
   const pinWrapRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     if (typeof window === "undefined") return;
-    console.log("WhyUse mounted");
 
     const pinWrap = pinWrapRef.current;
     const track = trackRef.current;
@@ -120,25 +119,18 @@ export default function WhyUsSection() {
   return (
     <section className="bg-white">
       <div ref={pinWrapRef} className="h-screen overflow-hidden">
-        <div className="h-full flex flex-col justify-center">
-
-          {/* ─── Heading — matches screenshot exactly ──────────────────── */}
-          <div className="text-center mb-12 px-6 shrink-0">
-            <h2
-              className="font-display text-4xl md:text-5xl font-bold text-slate-900 mb-5"
-            >
-              Why us?
-            </h2>
-            <p className="font-body text-slate-600 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-             Many healthcare marketing agencies focus only on generating leads.
-We help you build a system that not only brings patient inquiries but also converts and retains them for long-term growth.
+        <div className="flex h-full flex-col justify-center">
+          <div className="mb-12 shrink-0 px-6 text-center">
+            <h2 className="heading mb-5">Why us?</h2>
+            <p className="font-body mx-auto max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">
+              Many healthcare marketing agencies focus only on generating leads. We help you build a system that
+              not only brings patient inquiries but also converts and retains them for long-term growth.
             </p>
           </div>
 
-          {/* ─── Card track ────────────────────────────────────────────── */}
           <div
             ref={trackRef}
-            className="flex items-stretch gap-6 pl-[8vw] pr-[8vw] w-max min-w-max will-change-transform"
+            className="flex min-w-max w-max items-stretch gap-6 pl-[8vw] pr-[8vw] will-change-transform"
           >
             {CARDS.map(({ icon: Icon, title, desc }, i) => (
               <div
@@ -155,26 +147,19 @@ We help you build a system that not only brings patient inquiries but also conve
                   gap-4
                 "
               >
-                {/* Icon circle — light blue outline style like screenshot */}
-                <div className="w-16 h-16 rounded-full border-2 border-blue-200 flex items-center justify-center shrink-0">
-                  <Icon className="text-blue-400 text-2xl" />
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-2 border-blue-200">
+                  <Icon className="text-2xl text-blue-400" />
                 </div>
 
-                {/* Title */}
-                <h3 className="card-title text-base text-slate-800">
-                  {title}
-                </h3>
+                <h3 className="card-title text-base text-slate-800">{title}</h3>
 
-                {/* Desc */}
-                <p className="font-body text-slate-500 text-sm leading-relaxed">
-                  {desc}
-                </p>
+                <p className="font-body text-sm leading-relaxed text-slate-500">{desc}</p>
               </div>
             ))}
           </div>
-
         </div>
       </div>
     </section>
   );
 }
+

@@ -5,6 +5,7 @@ import ResultSection from "../../components/ResultSection";
 import GrowthSection from "../../components/GrowthSection";
 import Carousel from "../../components/Carousel";
 import StepsSection from "../../components/StepsSection";
+import TeamSection from "../../components/TeamSection";
 
 
 export default function AboutPage() {
@@ -16,7 +17,7 @@ export default function AboutPage() {
       <Carousel/>
       <StepsSection/>
       <ResultSection/>
-      {/* <TeamSection/> */}
+       <TeamSection/> 
       <Footer />
     </main>
   );

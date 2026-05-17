@@ -105,30 +105,15 @@ export default function FAQ() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="font-bold text-3xl md:text-4xl text-blue-950 leading-tight tracking-tight"
+            className="heading"
           >
             Frequently Asked Questions
           </motion.h2>
 
-          <motion.p
-            ref={subtextRef}
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.65, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-4 text-sm text-blue-500 leading-relaxed"
-          >
-            Find clear answers to common queries and learn more about our
-            services easily.
-          </motion.p>
+         
 
           {/* Animated underline accent */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={isInView ? { scaleX: 1 } : {}}
-            transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            style={{ originX: 0 }}
-            className="mt-5 h-0.5 w-16 bg-blue-600 rounded-full"
-          />
+          
         </div>
 
         {/* Right: accordion — GSAP handles entry, Framer handles open/close */}

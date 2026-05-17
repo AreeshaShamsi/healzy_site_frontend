@@ -271,7 +271,7 @@ export default function Navbar() {
 
             {/* CTA — md+ only */}
             <button className="cta-btn">
-              Get started
+              Book an appointment
               <svg width="16" height="16" viewBox="0 0 14 14" fill="none">
                 <path d="M3 7h8M7.5 4l3.5 3-3.5 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>

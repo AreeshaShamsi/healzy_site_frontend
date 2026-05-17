@@ -266,32 +266,32 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
         {/* Card 1 — Left */}
         <motion.div
           style={{ opacity: leftPanelOpacity }}
-          className="absolute left-12 top-[53%] z-30 w-full max-w-[520px] -translate-y-1/2 md:w-[38%] md:max-w-[520px] lg:max-w-[520px]"
+          className="absolute left-4 right-4 top-28 z-30 w-auto max-w-[520px] sm:top-32 md:left-12 md:right-auto md:top-[53%] md:w-[38%] md:max-w-[520px] md:-translate-y-1/2 lg:max-w-[520px]"
         >
           <motion.div
             style={{ y: leftPanelY }}
-            className="relative flex min-h-[420px] w-full max-w-[520px] flex-col space-y-5 overflow-hidden rounded-[26px] border-[1.5px] border-[rgba(255,255,255,0.90)] bg-[linear-gradient(160deg,rgba(255,255,255,0.82)_0%,rgba(200,225,255,0.56)_28%,rgba(175,210,255,0.40)_62%,rgba(240,248,255,0.74)_100%)] px-6 py-10 [backdrop-filter:blur(64px)_saturate(260%)_brightness(1.18)_hue-rotate(3deg)] [box-shadow:0_1px_0_rgba(255,255,255,1)_inset,1px_0_0_rgba(255,255,255,0.84)_inset,-1px_-1px_0_rgba(145,195,255,0.34)_inset,0_0_52px_rgba(135,195,255,0.24)_inset,0_40px_100px_rgba(38,88,220,0.30),0_16px_40px_rgba(38,88,220,0.22),0_5px_14px_rgba(0,0,0,0.10),0_0_0_1px_rgba(85,150,255,0.26)] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-[3] before:h-[2px] before:rounded-t-[26px] before:content-[''] before:bg-[linear-gradient(90deg,rgba(140,195,255,0)_0%,rgba(255,255,255,1)_32%,rgba(195,228,255,0.88)_62%,rgba(140,195,255,0.22)_100%)] after:pointer-events-none after:absolute after:-right-[72px] after:-top-[72px] after:z-[1] after:h-[240px] after:w-[240px] after:rounded-full after:bg-[radial-gradient(circle,rgba(95,158,255,0.20)_0%,rgba(115,175,255,0.07)_44%,transparent_68%)] after:content-['']"
+            className="relative flex w-full max-w-[520px] flex-col space-y-4 px-1 py-1 sm:space-y-5 md:min-h-[420px] md:overflow-hidden md:rounded-[26px] md:border-[1.5px] md:border-[rgba(255,255,255,0.90)] md:bg-[linear-gradient(160deg,rgba(255,255,255,0.82)_0%,rgba(200,225,255,0.56)_28%,rgba(175,210,255,0.40)_62%,rgba(240,248,255,0.74)_100%)] md:px-6 md:py-10 md:[backdrop-filter:blur(64px)_saturate(260%)_brightness(1.18)_hue-rotate(3deg)] md:[box-shadow:0_1px_0_rgba(255,255,255,1)_inset,1px_0_0_rgba(255,255,255,0.84)_inset,-1px_-1px_0_rgba(145,195,255,0.34)_inset,0_0_52px_rgba(135,195,255,0.24)_inset,0_40px_100px_rgba(38,88,220,0.30),0_16px_40px_rgba(38,88,220,0.22),0_5px_14px_rgba(0,0,0,0.10),0_0_0_1px_rgba(85,150,255,0.26)] md:before:pointer-events-none md:before:absolute md:before:inset-x-0 md:before:top-0 md:before:z-[3] md:before:h-[2px] md:before:rounded-t-[26px] md:before:content-[''] md:before:bg-[linear-gradient(90deg,rgba(140,195,255,0)_0%,rgba(255,255,255,1)_32%,rgba(195,228,255,0.88)_62%,rgba(140,195,255,0.22)_100%)] md:after:pointer-events-none md:after:absolute md:after:-right-[72px] md:after:-top-[72px] md:after:z-[1] md:after:h-[240px] md:after:w-[240px] md:after:rounded-full md:after:bg-[radial-gradient(circle,rgba(95,158,255,0.20)_0%,rgba(115,175,255,0.07)_44%,transparent_68%)] md:after:content-['']"
           >
-            <div className="pointer-events-none absolute -bottom-[55px] -left-[55px] z-[1] h-[195px] w-[195px] rounded-full bg-[radial-gradient(circle,rgba(165,208,255,0.20)_0%,transparent_64%)]" />
+            <div className="pointer-events-none absolute -bottom-[55px] -left-[55px] z-[1] hidden h-[195px] w-[195px] rounded-full bg-[radial-gradient(circle,rgba(165,208,255,0.20)_0%,transparent_64%)] md:block" />
 
-            <h1 className="cinematic-heading-main relative z-[2] my-4">
+            <h1 className="heading relative z-[2] my-4">
               Acquire
-              <span className="ml-2 italic text-[#2563eb]">Patients.</span>
+              <em className="ml-2">Patients.</em>
               <br />
               Build Trust.
               <br />
               Retain Them.
             </h1>
 
-            <div className="relative z-[2] my-[14px] h-px bg-[linear-gradient(90deg,transparent_0%,rgba(80,135,255,0.30)_18%,rgba(255,255,255,0.68)_50%,rgba(80,135,255,0.24)_82%,transparent_100%)]" />
+            <div className="relative z-[2] my-[10px] h-px bg-[linear-gradient(90deg,transparent_0%,rgba(80,135,255,0.30)_18%,rgba(255,255,255,0.68)_50%,rgba(80,135,255,0.24)_82%,transparent_100%)] md:my-[14px]" />
 
-            <p className="cinematic-body relative z-[2] mb-6 text-[rgba(0,0,0,0.52)]">
+            <p className="cinematic-body relative z-[2] mt-6 mb-4 max-w-[36ch] text-[rgba(0,0,0,0.52)] sm:mt-8 sm:mb-20 md:mt-0 md:mb-6">
               We help healthcare businesses acquire new patients, convert inquiries into appointments, and retain them for long-term growth.
             </p>
 
             <a
               href="#services"
-              className="button-text relative z-[2] inline-flex self-start rounded-[100px] bg-[#0c1a2e] px-[26px] py-3 text-white no-underline transition-[background,transform] duration-200 hover:bg-[#1b3860]"
+              className="button-text relative z-[2] mt-2 inline-flex self-start rounded-[100px] bg-[#0c1a2e] px-[26px] py-3 text-white no-underline transition-[background,transform] duration-200 hover:bg-[#1b3860] md:mt-0"
             >
               Book an Appointment
             </a>
@@ -306,7 +306,7 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
           <div className="relative overflow-hidden rounded-[26px] border-[1.5px] border-[rgba(255,255,255,0.88)] bg-[linear-gradient(160deg,rgba(255,255,255,0.80)_0%,rgba(210,228,255,0.58)_38%,rgba(190,215,255,0.42)_68%,rgba(255,255,255,0.72)_100%)] px-7 pb-[30px] pt-7 [backdrop-filter:blur(52px)_saturate(230%)_brightness(1.12)_hue-rotate(2deg)] [box-shadow:0_1px_0_rgba(255,255,255,1)_inset,1px_0_0_rgba(255,255,255,0.76)_inset,-1px_-1px_0_rgba(175,210,255,0.22)_inset,0_0_42px_rgba(138,190,255,0.18)_inset,0_34px_84px_rgba(55,105,220,0.22),0_12px_34px_rgba(55,105,220,0.16),0_4px_10px_rgba(0,0,0,0.07),0_0_0_1px_rgba(115,168,255,0.18)] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-[3] before:h-[2px] before:rounded-t-[26px] before:content-[''] before:bg-[linear-gradient(90deg,rgba(140,195,255,0)_0%,rgba(255,255,255,1)_32%,rgba(195,228,255,0.88)_62%,rgba(140,195,255,0.22)_100%)] after:pointer-events-none after:absolute after:-right-[72px] after:-top-[72px] after:z-[1] after:h-[240px] after:w-[240px] after:rounded-full after:bg-[radial-gradient(circle,rgba(95,158,255,0.20)_0%,rgba(115,175,255,0.07)_44%,transparent_68%)] after:content-['']">
             <div className="pointer-events-none absolute -bottom-[45px] -left-[45px] z-[1] h-[165px] w-[165px] rounded-full bg-[radial-gradient(circle,rgba(165,208,255,0.16)_0%,transparent_64%)]" />
 
-            <h2 className="cinematic-heading-secondary relative z-[2] mb-[10px]">
+            <h2 className="heading relative z-[2] mb-[10px]">
               Why Many Healthcare
               <br />
               Businesses Struggle
@@ -342,7 +342,7 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
           <div className="relative overflow-hidden rounded-[26px] border-[1.5px] border-[rgba(255,255,255,0.88)] bg-[linear-gradient(160deg,rgba(255,255,255,0.80)_0%,rgba(210,228,255,0.58)_38%,rgba(190,215,255,0.42)_68%,rgba(255,255,255,0.72)_100%)] px-7 pb-[30px] pt-7 [backdrop-filter:blur(52px)_saturate(230%)_brightness(1.12)_hue-rotate(2deg)] [box-shadow:0_1px_0_rgba(255,255,255,1)_inset,1px_0_0_rgba(255,255,255,0.76)_inset,-1px_-1px_0_rgba(175,210,255,0.22)_inset,0_0_42px_rgba(138,190,255,0.18)_inset,0_34px_84px_rgba(55,105,220,0.22),0_12px_34px_rgba(55,105,220,0.16),0_4px_10px_rgba(0,0,0,0.07),0_0_0_1px_rgba(115,168,255,0.18)] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-[3] before:h-[2px] before:rounded-t-[26px] before:content-[''] before:bg-[linear-gradient(90deg,rgba(140,195,255,0)_0%,rgba(255,255,255,1)_32%,rgba(195,228,255,0.88)_62%,rgba(140,195,255,0.22)_100%)] after:pointer-events-none after:absolute after:-right-[72px] after:-top-[72px] after:z-[1] after:h-[240px] after:w-[240px] after:rounded-full after:bg-[radial-gradient(circle,rgba(95,158,255,0.20)_0%,rgba(115,175,255,0.07)_44%,transparent_68%)] after:content-['']">
             <div className="pointer-events-none absolute -bottom-[45px] -left-[45px] z-[1] h-[165px] w-[165px] rounded-full bg-[radial-gradient(circle,rgba(165,208,255,0.16)_0%,transparent_64%)]" />
 
-            <h2 className="cinematic-heading-secondary relative z-[2] mb-[6px]">
+            <h2 className="heading relative z-[2] mb-[6px]">
               Our Approach
             </h2>
 

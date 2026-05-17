@@ -367,19 +367,10 @@ export default function ResultsSection() {
           {/* Heading */}
           <h2
             ref={headingRef}
-            style={{
-              fontFamily: "var(--font-playfair,'Playfair Display',Georgia,serif)",
-              fontSize: "clamp(28px, 4vw, 52px)",
-              fontWeight: 400,
-              letterSpacing: "-0.028em",
-              lineHeight: 1.08,
-              color: "#042C53",
-              margin: "0 auto 14px",
-              maxWidth: "560px",
-            }}
+            className="heading mx-auto mb-[14px] max-w-[560px]"
           >
             What our system{" "}
-            <em className="not-italic" style={{ color: "#185FA5" }}>delivers</em>
+            <em>delivers</em>
           </h2>
 
           {/* Subtitle */}
