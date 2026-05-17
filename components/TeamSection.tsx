@@ -112,9 +112,9 @@ export default function TeamSection() {
         </div>
 
         <div className="cards grid grid-cols-3 gap-5 max-md:grid-cols-1">
-          {team.map((member) => (
+          {team.map((member, index) => (
             <div
-              key={member.index}
+              key={member.name}
               className="card group relative flex cursor-default flex-col overflow-hidden rounded-3xl border border-[#e8e8e4] bg-white transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:border-[#d8d8d2] hover:shadow-[0_20px_48px_rgba(0,0,0,0.10)]"
             >
               <div className="relative aspect-[4/3.2] w-full overflow-hidden bg-[#e0e0da]">
@@ -137,7 +137,7 @@ export default function TeamSection() {
                 </div>
                 <div className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-t from-[rgba(13,13,13,0.6)] to-transparent to-[55%]" />
                 <span className="absolute right-3.5 top-3.5 z-[3] rounded-full border border-[rgba(255,255,255,0.25)] bg-[rgba(255,255,255,0.18)] px-2.5 py-1 font-['Syne',sans-serif] text-[10px] font-bold tracking-[0.08em] text-white backdrop-blur-[8px]">
-                  {member.index}
+                  {String(index + 1).padStart(2, "0")}
                 </span>
                 <div className="absolute bottom-4 left-5 z-[3]">
                   <p className="font-['Syne',sans-serif] text-[17px] font-bold leading-[1.15] text-white">{member.name}</p>
