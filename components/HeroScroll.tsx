@@ -319,7 +319,7 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
             </p>
 
             <div className="relative z-[2] flex flex-col items-start gap-1.5 md:gap-[5px]">
-              {BULLETS.map(({ op, icon, title, desc }) => (
+              {BULLETS.map(({ op, icon, title }) => (
                 <motion.div
                   key={title}
                   style={{ opacity: op }}
@@ -328,7 +328,6 @@ export default function CinematicScroll({ children }: HeroScrollProps) {
                   {icon}
                   <div>
                     <p className="card-title mb-0 whitespace-nowrap text-[13px] leading-tight text-[#0a0a0a] md:mb-[2px] md:text-[14px]">{title}</p>
-                    <p className="font-body m-0 hidden text-[12.5px] leading-[1.52] text-[rgba(0,0,0,0.50)] md:block">{desc}</p>
                   </div>
                 </motion.div>
               ))}
